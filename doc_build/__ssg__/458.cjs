@@ -1,0 +1,5226 @@
+"use strict";
+exports.ids = ["458"];
+exports.modules = {
+5945(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.r(__webpack_exports__);
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (MDXContent)
+});
+/* import */ var react_jsx_runtime__rspack_import_0 = __webpack_require__(1684);
+/* import */ var _mdx_js_react__rspack_import_1 = __webpack_require__(506);
+
+
+function _createMdxContent(props) {
+    const _components = {
+        a: "a",
+        code: "code",
+        h1: "h1",
+        h2: "h2",
+        h3: "h3",
+        li: "li",
+        ol: "ol",
+        p: "p",
+        pre: "pre",
+        span: "span",
+        strong: "strong",
+        ul: "ul",
+        ...(0,_mdx_js_react__rspack_import_1/* .useMDXComponents */.R)(),
+        ...props.components
+    };
+    return (0,react_jsx_runtime__rspack_import_0.jsxs)(react_jsx_runtime__rspack_import_0.Fragment, {
+        children: [
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h1, {
+                id: "error-handling",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#error-handling",
+                        children: "#"
+                    }),
+                    "Error Handling"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.p, {
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                        children: "behest"
+                    }),
+                    " exposes typed error categories instead of stringly framework failures. This makes error handling explicit and helps you handle different error scenarios appropriately."
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "error-types",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#error-types",
+                        children: "#"
+                    }),
+                    "Error Types"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h3, {
+                id: "providererror",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#providererror",
+                        children: "#"
+                    }),
+                    "ProviderError"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.p, {
+                children: "Errors from model providers:"
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Provider"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e)) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "UnsupportedCapability"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(cap) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Provider doesn't support: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", cap);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Retryable"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Temporary error, retry: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Transport"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(err) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Network error: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", err);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "InvalidResponse"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Bad response from provider: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Adapter"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Adapter-specific error: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // ... handle other errors"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h3, {
+                id: "toolerror",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#toolerror",
+                        children: "#"
+                    }),
+                    "ToolError"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.p, {
+                children: "Errors from tool execution:"
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Tool"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e)) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ToolError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "NotFound"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(name) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Tool not found: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", name);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ToolError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "InvalidArguments"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Invalid tool arguments: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ToolError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "ExecutionFailed"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Tool execution failed: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ToolError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Timeout"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(duration) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Tool timed out after {:?}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", duration);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ToolError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Unimplemented"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(name) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"External tool not implemented: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", name);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // ... handle other errors"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h3, {
+                id: "storageerror",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#storageerror",
+                        children: "#"
+                    }),
+                    "StorageError"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.p, {
+                children: "Errors from storage operations:"
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Storage"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e)) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        StorageError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "NotFound"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(key) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Key not found: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", key);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        StorageError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "ConnectionFailed"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Storage connection failed: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        StorageError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Serialization"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Serialization error: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        StorageError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Internal"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Internal storage error: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // ... handle other errors"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h3, {
+                id: "contexterror",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#contexterror",
+                        children: "#"
+                    }),
+                    "ContextError"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.p, {
+                children: "Errors from context building:"
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Context"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e)) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ContextError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "AdapterFailed"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Context adapter failed: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        ContextError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "TokenLimitExceeded"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "            limit,"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "            actual,"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "        } "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "                \"Context too long: {} tokens (limit: {})\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ","
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "                actual, limit"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "            );"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // ... handle other errors"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h3, {
+                id: "runtimeerror",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#runtimeerror",
+                        children: "#"
+                    }),
+                    "RuntimeError"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.p, {
+                children: "Errors from the runtime:"
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e)) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        RuntimeError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "SessionClosed"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " =>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Session is closed\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ");"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        RuntimeError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "PolicyViolation"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Policy violation: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        RuntimeError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "DoomLoopDetected"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " =>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Doom loop detected\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ");"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        RuntimeError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "LimitExceeded"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(limit) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Limit exceeded: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", limit);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // ... handle other errors"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "top-level-error",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#top-level-error",
+                        children: "#"
+                    }),
+                    "Top-Level Error"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.p, {
+                children: [
+                    "The top-level ",
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                        children: "Error"
+                    }),
+                    " enum wraps all error types:"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " result {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Ok"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(value) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "        // Handle success"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " e {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Provider"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle provider error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Tool"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle tool error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Storage"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle storage error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Context"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle context error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle runtime error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Config"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle config error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Internal"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " { "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-comment)"
+                                        },
+                                        children: "/* Handle internal error */"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " }"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    },"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "result-type",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#result-type",
+                        children: "#"
+                    }),
+                    "Result Type"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.p, {
+                children: [
+                    "Use the crate-level ",
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                        children: "Result<T>"
+                    }),
+                    " type for convenience:"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "fn"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " my_function"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "() "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "->"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " Result"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "<"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "String"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "> {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-token-comment)"
+                                    },
+                                    children: "    // Functions that can fail return Result<T>"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Ok"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"success\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "to_string"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "())"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "error-propagation",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#error-propagation",
+                        children: "#"
+                    }),
+                    "Error Propagation"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.p, {
+                children: [
+                    "Use ",
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                        children: "?"
+                    }),
+                    " operator for error propagation:"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "async"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " fn"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " process_request"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "() "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "->"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " Result"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "<"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "ChatResponse"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "> {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " config "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " AgentConfig"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "builder"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "()"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "        ."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "with_file"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"behest.toml\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ")"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "?"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "        ."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "build"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "()"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "?"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " runtime "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " config"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "into_runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "()"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ".await?"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " request "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " ChatRequest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "new"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(ModelName"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "new"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"gpt-4\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "))"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "        ."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "with_user_text"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Hello!\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ");"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " response "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "complete"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(request)"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ".await?"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "    Ok"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(response)"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "error-context",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#error-context",
+                        children: "#"
+                    }),
+                    "Error Context"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.p, {
+                children: [
+                    "Add context to errors using ",
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                        children: "map_err"
+                    }),
+                    ":"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " response "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "complete"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(request)"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ".await"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    ."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "map_err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "|"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "e"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "|"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "        eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Failed to complete request: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", e);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        e"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "    })"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "?"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "best-practices",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#best-practices",
+                        children: "#"
+                    }),
+                    "Best Practices"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.ol, {
+                children: [
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.strong, {
+                                children: "Handle specific errors"
+                            }),
+                            ": Match on specific error variants when possible"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.strong, {
+                                children: "Provide context"
+                            }),
+                            ": Add context to errors for better debugging"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.strong, {
+                                children: [
+                                    "Use ",
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                                        children: "?"
+                                    }),
+                                    " operator"
+                                ]
+                            }),
+                            ": Propagate errors with ",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                                children: "?"
+                            }),
+                            " for cleaner code"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.strong, {
+                                children: "Log errors"
+                            }),
+                            ": Log errors for debugging and monitoring"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.strong, {
+                                children: "Retry on transient errors"
+                            }),
+                            ": Retry on ",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.code, {
+                                children: "ProviderError::Retryable"
+                            })
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.strong, {
+                                children: "Graceful degradation"
+                            }),
+                            ": Handle errors gracefully in production"
+                        ]
+                    }),
+                    "\n"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "example-complete-error-handling",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#example-complete-error-handling",
+                        children: "#"
+                    }),
+                    "Example: Complete Error Handling"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsx)(react_jsx_runtime__rspack_import_0.Fragment, {
+                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.pre, {
+                    className: "shiki css-variables",
+                    style: {
+                        backgroundColor: "var(--shiki-background)",
+                        color: "var(--shiki-foreground)"
+                    },
+                    tabIndex: "0",
+                    lang: "rust",
+                    children: (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.code, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "use"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " behest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "prelude"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::*"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line"
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "async"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " fn"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " safe_complete"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "    runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ":"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " &"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "AgentRuntime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ","
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "    request"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ":"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " ChatRequest"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ","
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ") "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "->"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " Result"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "<"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "ChatResponse"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "> {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    let"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " mut"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " retries "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-constant)"
+                                        },
+                                        children: " 3"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    "
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "    loop"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "        match"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " runtime"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "complete"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(request"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "."
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "clone"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "())"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ".await"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            Ok"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(response) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " return"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " Ok"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(response),"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Error"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Provider"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(ProviderError"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "Retryable"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(msg))) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "if"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " retries "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ">"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-constant)"
+                                        },
+                                        children: " 0"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " =>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: " {"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "                eprintln!"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-string-expression)"
+                                        },
+                                        children: "\"Retrying after error: {}\""
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ", msg);"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "                retries "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "-="
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-constant)"
+                                        },
+                                        children: " 1"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "                tokio"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "time"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "sleep"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(std"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "time"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "Duration"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "::"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "from_secs"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "("
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-constant)"
+                                        },
+                                        children: "1"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "))"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: ".await"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: ";"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "            }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.span, {
+                                className: "line",
+                                children: [
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: "            Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e) "
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: "=>"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-keyword)"
+                                        },
+                                        children: " return"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-token-function)"
+                                        },
+                                        children: " Err"
+                                    }),
+                                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                        style: {
+                                            color: "var(--shiki-foreground)"
+                                        },
+                                        children: "(e),"
+                                    })
+                                ]
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "        }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "    }"
+                                })
+                            }),
+                            "\n",
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                className: "line",
+                                children: (0,react_jsx_runtime__rspack_import_0.jsx)(_components.span, {
+                                    style: {
+                                        color: "var(--shiki-foreground)"
+                                    },
+                                    children: "}"
+                                })
+                            })
+                        ]
+                    })
+                })
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.h2, {
+                id: "see-also",
+                children: [
+                    (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                        className: "rp-header-anchor",
+                        "aria-hidden": "true",
+                        href: "#see-also",
+                        children: "#"
+                    }),
+                    "See Also"
+                ]
+            }),
+            "\n",
+            (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.ul, {
+                children: [
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                                href: "/architecture.html",
+                                children: "Architecture"
+                            }),
+                            " - Runtime model"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                                href: "/providers.html",
+                                children: "Providers"
+                            }),
+                            " - Provider configuration"
+                        ]
+                    }),
+                    "\n",
+                    (0,react_jsx_runtime__rspack_import_0.jsxs)(_components.li, {
+                        children: [
+                            (0,react_jsx_runtime__rspack_import_0.jsx)(_components.a, {
+                                href: "/getting-started.html",
+                                children: "Getting Started"
+                            }),
+                            " - Basic setup"
+                        ]
+                    }),
+                    "\n"
+                ]
+            })
+        ]
+    });
+}
+function MDXContent(props = {}) {
+    const { wrapper: MDXLayout } = {
+        ...(0,_mdx_js_react__rspack_import_1/* .useMDXComponents */.R)(),
+        ...props.components
+    };
+    return MDXLayout ? (0,react_jsx_runtime__rspack_import_0.jsx)(MDXLayout, {
+        ...props,
+        children: (0,react_jsx_runtime__rspack_import_0.jsx)(_createMdxContent, {
+            ...props
+        })
+    }) : _createMdxContent(props);
+}
+MDXContent.__RSPRESS_PAGE_META = {};
+MDXContent.__RSPRESS_PAGE_META["en%2Ferror-handling.md"] = {
+    "toc": [
+        {
+            "id": "error-types",
+            "text": "Error Types",
+            "depth": 2
+        },
+        {
+            "id": "providererror",
+            "text": "ProviderError",
+            "depth": 3
+        },
+        {
+            "id": "toolerror",
+            "text": "ToolError",
+            "depth": 3
+        },
+        {
+            "id": "storageerror",
+            "text": "StorageError",
+            "depth": 3
+        },
+        {
+            "id": "contexterror",
+            "text": "ContextError",
+            "depth": 3
+        },
+        {
+            "id": "runtimeerror",
+            "text": "RuntimeError",
+            "depth": 3
+        },
+        {
+            "id": "top-level-error",
+            "text": "Top-Level Error",
+            "depth": 2
+        },
+        {
+            "id": "result-type",
+            "text": "Result Type",
+            "depth": 2
+        },
+        {
+            "id": "error-propagation",
+            "text": "Error Propagation",
+            "depth": 2
+        },
+        {
+            "id": "error-context",
+            "text": "Error Context",
+            "depth": 2
+        },
+        {
+            "id": "best-practices",
+            "text": "Best Practices",
+            "depth": 2
+        },
+        {
+            "id": "example-complete-error-handling",
+            "text": "Example: Complete Error Handling",
+            "depth": 2
+        },
+        {
+            "id": "see-also",
+            "text": "See Also",
+            "depth": 2
+        }
+    ],
+    "title": "Error Handling",
+    "headingTitle": "Error Handling",
+    "frontmatter": {}
+};
+
+
+},
+
+};
+;
