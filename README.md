@@ -1,6 +1,65 @@
-# behest Website
+# behest
 
-This is the official website for the [behest](https://github.com/lazhenyi/behest) project, built with [Rspress](https://rspress.dev/).
+Rust-native building blocks for production AI agent runtimes
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Project Structure
+
+```
+.
+├── app/                    # Next.js App Router
+│   ├── [lang]/            # Dynamic language routes
+│   │   ├── docs/          # Documentation pages
+│   │   ├── dictionaries/  # i18n dictionaries
+│   │   └── layout.tsx     # Language layout
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Root page (redirects to /en)
+├── components/            # React components
+│   ├── Analytics.tsx      # Vercel Analytics
+│   ├── Header.tsx         # Site header
+│   └── Sidebar.tsx        # Documentation sidebar
+├── docs/                  # Markdown documentation
+│   ├── en/                # English docs
+│   └── zh/                # Chinese docs
+├── lib/                   # Utility functions
+│   └── docs.ts            # Documentation helpers
+├── next.config.mjs        # Next.js configuration
+├── tailwind.config.ts     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+└── vercel.json            # Vercel deployment configuration
+```
+
+## Features
+
+- **Next.js App Router** - Modern React framework with server components
+- **i18n Support** - English and Chinese documentation
+- **Tailwind CSS** - Utility-first CSS framework
+- **Markdown Documentation** - Easy to maintain documentation
+- **Vercel Analytics** - Performance monitoring
+- **Static Export** - Optimized for Vercel deployment
+
+## Deployment
+
+This project is configured for deployment on Vercel. Simply connect your repository to Vercel and it will automatically deploy.
+
+### Manual Deployment
+
+```bash
+# Build the project
+pnpm build
+
+# The output will be in the `out` directory
+```
 
 ## Development
 
@@ -8,98 +67,36 @@ This is the official website for the [behest](https://github.com/lazhenyi/behest
 # Install dependencies
 pnpm install
 
-# Start dev server
+# Start development server
 pnpm dev
 
 # Build for production
 pnpm build
 
-# Preview production build
-pnpm preview
-```
-
-### Quick Scripts
-
-```bash
-# Start development server
-./dev.sh
-
-# Build for production
-./build.sh
-```
-
-## Project Structure
-
-```
-.
-├── docs/                    # Documentation source files
-│   ├── index.md            # Main landing page
-│   ├── getting-started.md  # Quick start guide
-│   ├── providers.md        # Provider adapters
-│   ├── tools.md            # Tool definition and execution
-│   ├── sessions.md         # Session management
-│   ├── storage.md          # Storage backends
-│   ├── configuration.md    # Configuration options
-│   ├── error-handling.md   # Error handling
-│   ├── examples.md         # Practical examples
-│   ├── architecture.md     # Runtime architecture
-│   ├── rag.md              # RAG (Retrieval-Augmented Generation)
-│   ├── events.md           # Event system
-│   ├── features.md         # Feature flags
-│   ├── api-reference.md    # API reference
-│   ├── development.md      # Development guide
-│   ├── public/             # Static assets
-│   └── styles/             # Custom CSS
-├── package.json
-├── rspress.config.ts
-└── tsconfig.json
+# Format code
+pnpm format
 ```
 
 ## Documentation
 
-- **index.md**: Project overview and quick start
-- **getting-started.md**: Installation and basic usage
-- **providers.md**: Provider adapters and custom implementations
-- **tools.md**: Tool definition and execution
-- **sessions.md**: Session management and conversation state
-- **storage.md**: Storage backends and persistence
-- **configuration.md**: Configuration options and layers
-- **error-handling.md**: Typed error categories and handling
-- **examples.md**: Practical code examples
-- **architecture.md**: Runtime model and design principles
-- **rag.md**: Retrieval-Augmented Generation
-- **events.md**: Event system and observability
-- **features.md**: Feature flags and configuration
-- **api-reference.md**: Core types and traits reference
-- **development.md**: Development setup and contribution guide
+Documentation files are located in the `docs` directory:
 
-## Customization
+- `docs/en/` - English documentation
+- `docs/zh/` - Chinese documentation
 
-### Update Site Configuration
+Each documentation file should be a Markdown file with frontmatter:
 
-Edit `rspress.config.ts` to customize:
-- Site title and description
-- Logo and favicon
-- Social links
-- Theme settings
+```markdown
+---
+title: Page Title
+description: Page description
+---
 
-### Add Documentation
+# Content
 
-Add new `.md` files to the `docs/` directory. They will be automatically included in the build.
-
-### Custom Styles
-
-Edit `docs/styles/custom.css` to customize the theme colors and styles.
-
-## Deployment
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment instructions to various platforms.
+Your documentation content here.
+```
 
 ## License
 
-Licensed under either of:
-
-- Apache License, Version 2.0
-- MIT license
-
-at your option.
+MIT
