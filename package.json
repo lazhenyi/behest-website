@@ -1,0 +1,22 @@
+{
+  "name": "behest-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rspress build",
+    "dev": "rspress dev",
+    "format": "prettier --write .",
+    "preview": "rspress preview"
+  },
+  "devDependencies": {
+    "@rspress/core": "2.0.2",
+    "@rspress/plugin-llms": "2.0.2",
+    "@rspress/plugin-sitemap": "2.0.2",
+    "@rspress/plugin-twoslash": "2.0.2",
+    "@types/node": "^24.10.4",
+    "prettier": "^3.7.4",
+    "rsbuild-plugin-google-analytics": "^1.0.5",
+    "rsbuild-plugin-open-graph": "^1.1.2"
+  }
+}
