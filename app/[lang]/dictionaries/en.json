@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "docs": "Documentation",
+    "github": "GitHub"
+  },
+  "sidebar": {
+    "getting_started": "Getting Started",
+    "introduction": "Introduction",
+    "quick_start": "Quick Start",
+    "examples": "Examples",
+    "core_concepts": "Core Concepts",
+    "providers": "Providers",
+    "tools": "Tools",
+    "sessions": "Sessions",
+    "storage": "Storage",
+    "configuration": "Configuration",
+    "error_handling": "Error Handling",
+    "advanced": "Advanced",
+    "architecture": "Architecture",
+    "rag": "RAG",
+    "events": "Events",
+    "feature_flags": "Feature Flags",
+    "api_reference": "API Reference",
+    "development": "Development",
+    "development_guide": "Development Guide"
+  },
+  "footer": {
+    "copyright": "behest. All rights reserved.",
+    "built_with": "Built with Next.js and deployed on Vercel"
+  }
+}
