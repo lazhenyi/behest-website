@@ -1,4 +1,5 @@
 import { defineConfig } from '@rspress/core';
+import path from 'path';
 
 export default defineConfig({
   root: 'docs',
@@ -107,6 +108,7 @@ export default defineConfig({
       ],
     },
   },
+  globalUIComponents: [path.join(__dirname, 'components', 'Analytics.tsx')],
   markdown: {
     mermaid: true,
   },
