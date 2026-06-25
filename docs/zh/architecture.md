@@ -62,6 +62,36 @@ crate 有意保持严格：
 
 该项目将公共 API 清晰度和失败路径卫生视为运行时契约的一部分。
 
+## 运行时事件层
+
+运行时事件层与 agent 循环并列，提供传输中立的 event sourcing，支持跨实例可观测性和事件回放：
+
+```text
+AgentRuntime
+  -> AgentEvent
+  -> RuntimeEventBridge
+      -> RuntimeEventStore::append (持久化)
+      -> RuntimeStreamAdapter::publish (实时扇出)
+  -> RuntimeSubscriptionHub::subscribe_run
+      -> 先 live，再 list_after replay
+      -> 调用方通过 RuntimeEventEnvelope::seq 去重
+```
+
+核心类型：
+
+- `RuntimeEventEnvelope` — 包装 `AgentEvent`，附加 `event_id` (UUIDv7)、per-run `seq`、`run_id`、可选 `session_id` 和 `emitted_at`。
+- `RuntimeEventStore` — 持久化：`append(AgentEvent) -> RuntimeEventEnvelope` 与 `list_after(run_id, after_seq, limit)`。内存实现在单把 `Mutex` 下管理全部状态，保证序列号分配、session 传播和事件插入在每次 append 中是原子的。未知 run 返回空 replay。
+- `RuntimeStreamAdapter` — 按 room（`Run` / `Session` / `Provider`）进行尽力而为的实时扇出。
+- `RuntimeSubscriptionHub` — 组合 `EventStore` 与 `StreamAdapter`。`subscribe_run` 先开 live 订阅以避免 replay 与订阅之间的事件丢失；调用方通过 `seq` 对重叠的 envelope 去重。
+- `RuntimeInvocation` — 传输中立的 `emit` / `on` facade。`on` handler 接收 `RuntimeEventEnvelope` 与 `Control` 句柄，可选的 `tokio::sync::Semaphore` 控制并发。runtime 维护 `session_map`（run_id → session_id），将 session 身份传播到每个事件。
+
+后端（feature-gated）：
+
+- `MemoryRuntimeEventStore` + `MemoryRuntimeStreamAdapter`（默认，进程内）。
+- `RedisRuntimeEventStore`（Redis Streams XADD/XRANGE）+ `RedisRuntimeStreamAdapter`（Redis Pub/Sub）— `redis` feature。
+- `PostgresRuntimeEventStore`（PostgreSQL `runtime_events` 表，event 使用 JSONB）— `sqlx-postgres` feature。
+- `NatsJetStreamStreamAdapter`（每个 room 独立 JetStream stream，ephemeral pull consumer）— `nats` feature。
+
 ## 设计原则
 
 ### 类型安全优先

@@ -8,22 +8,41 @@ Simple chat completion with a provider:
 
 ```rust
 use behest::prelude::*;
+use behest::runtime::{AgentRuntime, RuntimePolicy, ToolRuntime, ContextPipeline, RuntimeStore};
+use behest::store::memory::{MemorySessionStore, MemoryExecutionStore};
+use behest::runtime::memory::MemoryRunStore;
+use std::sync::Arc;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    // Configure with OpenAI
-    let config = AgentConfig::builder()
-        .with_env("BEHEST")?
-        .build()?;
+    // Set up provider
+    let mut registry = ProviderRegistry::new();
+    // registry.register_chat(your_provider);
 
-    let runtime = config.into_runtime().await?;
+    // Set up runtime
+    let sessions = MemorySessionStore::new();
+    let executions = MemoryExecutionStore::new();
+    let runs = MemoryRunStore::new();
+    let store = Arc::new(RuntimeStore::new(
+        Box::new(sessions),
+        Box::new(executions),
+        Box::new(runs),
+    ));
 
-    let request = ChatRequest::new(ModelName::new("gpt-4"))
-        .with_system_text("You are a helpful assistant.")
-        .with_user_text("What is the capital of France?");
+    let policy = RuntimePolicy::new();
+    let tool_runtime = ToolRuntime::new(ToolRegistry::new(), policy.clone());
+    let context = ContextPipeline::new();
 
-    let response = runtime.complete(request).await?;
-    println!("Response: {}", response.message.content);
+    let runtime = AgentRuntime::new(registry, context, tool_runtime, store, policy);
+
+    let request = RunRequest::new(
+        ProviderId::new("openai"),
+        ModelName::new("gpt-4"),
+        "What is the capital of France?",
+    );
+
+    let output = runtime.run(request).await?;
+    println!("Run completed: {:?}", output.finish_reason);
 
     Ok(())
 }
@@ -52,14 +71,22 @@ impl ChatProvider for EchoProvider {
     }
 
     async fn complete(&self, request: ChatRequest) -> ProviderResult<ChatResponse> {
-        let last_message = request.messages.last()
-            .map(|m| m.content.to_string())
-            .unwrap_or_default();
+        let last_text = request.messages.last()
+            .and_then(|m| match m {
+                Message::User { content } | Message::System { content } => {
+                    content.first().map(|p| match p {
+                        ContentPart::Text { text } => text.as_str(),
+                        _ => "",
+                    })
+                }
+                _ => None,
+            })
+            .unwrap_or("");
 
         Ok(ChatResponse {
             provider: self.id.clone(),
             model: request.model,
-            message: Message::assistant_text(&format!("Echo: {}", last_message)),
+            message: Message::assistant_text(&format!("Echo: {last_text}")),
             finish_reason: FinishReason::Stop,
             usage: None,
             raw: None,
@@ -73,7 +100,7 @@ async fn main() -> Result<()> {
         id: ProviderId::new("echo"),
     };
 
-    let registry = ProviderRegistry::new();
+    let mut registry = ProviderRegistry::new();
     registry.register_chat(provider);
 
     let request = ChatRequest::new(ModelName::new("echo-model"))
@@ -84,7 +111,11 @@ async fn main() -> Result<()> {
         request,
     ).await?;
 
-    println!("Response: {}", response.message.content);
+    if let Message::Assistant { content, .. } = &response.message {
+        if let Some(ContentPart::Text { text }) = content.first() {
+            println!("Response: {text}");
+        }
+    }
 
     Ok(())
 }
@@ -115,8 +146,7 @@ async fn main() -> Result<()> {
             let expr = args.get("expression")
                 .and_then(|v| v.as_str())
                 .unwrap_or("0");
-            // Simple evaluation for demonstration
-            Ok(json!({ "result": format!("Evaluated: {}", expr) }))
+            Ok(json!({ "result": format!("Evaluated: {expr}") }))
         },
     )
     .read_only()
@@ -134,7 +164,7 @@ async fn main() -> Result<()> {
     );
 
     let output = registry.execute(&call).await?;
-    println!("Result: {}", output);
+    println!("Result: {}", output.value);
 
     Ok(())
 }
@@ -204,7 +234,7 @@ async fn main() -> Result<()> {
     registry.register(time);
 
     // List available tools
-    println!("Available tools: {:?}", registry.list());
+    println!("Available tools: {:?}", registry.names());
 
     // Execute tool calls
     let weather_call = ToolCall::new(
@@ -222,8 +252,8 @@ async fn main() -> Result<()> {
     let weather_result = registry.execute(&weather_call).await?;
     let time_result = registry.execute(&time_call).await?;
 
-    println!("Weather: {}", weather_result);
-    println!("Time: {}", time_result);
+    println!("Weather: {}", weather_result.value);
+    println!("Time: {}", time_result.value);
 
     Ok(())
 }
@@ -244,10 +274,9 @@ async fn main() -> Result<()> {
 api_key = "env:OPENAI_API_KEY"
 model = "gpt-4"
 
-[runtime]
-max_tokens = 4096
-temperature = 0.7
-stream = true
+[runtime.policy]
+max_iterations = 10
+max_tool_concurrency = 4
 "#;
 
     std::fs::write("behest.toml", config_content)?;
@@ -258,14 +287,8 @@ stream = true
         .with_env("BEHEST")?
         .build()?;
 
-    let runtime = config.into_runtime().await?;
-
-    // Use runtime
-    let request = ChatRequest::new(ModelName::new("gpt-4"))
-        .with_user_text("Hello!");
-
-    let response = runtime.complete(request).await?;
-    println!("Response: {}", response.message.content);
+    // Use config to set up runtime manually
+    // ... see Configuration docs for details ...
 
     // Clean up
     std::fs::remove_file("behest.toml")?;
@@ -286,19 +309,19 @@ async fn main() {
     match run().await {
         Ok(_) => println!("Success!"),
         Err(e) => {
-            eprintln!("Error: {}", e);
+            eprintln!("Error: {e}");
             match e {
                 Error::Provider(e) => {
-                    eprintln!("Provider error: {:?}", e);
+                    eprintln!("Provider error: {e:?}");
                 }
                 Error::Tool(e) => {
-                    eprintln!("Tool error: {:?}", e);
+                    eprintln!("Tool error: {e:?}");
                 }
                 Error::Storage(e) => {
-                    eprintln!("Storage error: {:?}", e);
+                    eprintln!("Storage error: {e:?}");
                 }
                 _ => {
-                    eprintln!("Other error: {}", e);
+                    eprintln!("Other error: {e}");
                 }
             }
         }
@@ -306,17 +329,18 @@ async fn main() {
 }
 
 async fn run() -> Result<()> {
-    let config = AgentConfig::builder()
-        .with_env("BEHEST")?
-        .build()?;
-
-    let runtime = config.into_runtime().await?;
+    let mut registry = ProviderRegistry::new();
+    // ... register providers ...
 
     let request = ChatRequest::new(ModelName::new("gpt-4"))
         .with_user_text("Hello!");
 
-    let response = runtime.complete(request).await?;
-    println!("Response: {}", response.message.content);
+    let response = registry.complete(&ProviderId::new("openai"), request).await?;
+    if let Message::Assistant { content, .. } = &response.message {
+        if let Some(ContentPart::Text { text }) = content.first() {
+            println!("Response: {text}");
+        }
+    }
 
     Ok(())
 }
@@ -324,7 +348,7 @@ async fn run() -> Result<()> {
 
 ## Streaming
 
-Streaming chat completion:
+Streaming chat completion via `ProviderRegistry`:
 
 ```rust
 use behest::prelude::*;
@@ -332,28 +356,24 @@ use futures_util::StreamExt;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let config = AgentConfig::builder()
-        .with_env("BEHEST")?
-        .build()?;
-
-    let runtime = config.into_runtime().await?;
+    let mut registry = ProviderRegistry::new();
+    // registry.register_chat(your_streaming_provider);
 
     let request = ChatRequest::new(ModelName::new("gpt-4"))
-        .with_user_text("Write a short poem.")
-        .with_stream(true);
+        .with_user_text("Write a short poem.");
 
-    let mut stream = runtime.stream(request).await?;
+    let mut stream = registry.stream(&ProviderId::new("openai"), request).await?;
 
     while let Some(event) = stream.next().await {
         match event {
-            Ok(ChatEvent::Delta(delta)) => {
-                print!("{}", delta);
+            Ok(ChatStreamEvent::TextDelta { delta }) => {
+                print!("{delta}");
             }
-            Ok(ChatEvent::Done) => {
+            Ok(ChatStreamEvent::Finished { .. }) => {
                 println!("\n[Done]");
             }
             Err(e) => {
-                eprintln!("Stream error: {}", e);
+                eprintln!("Stream error: {e}");
             }
             _ => {}
         }
@@ -365,13 +385,7 @@ async fn main() -> Result<()> {
 
 ## More Examples
 
-See the [examples/](https://github.com/lazhenyi/behest/tree/main/examples) directory in the repository for more examples:
-
-- `hello_world.rs` - Basic usage
-- `custom_provider.rs` - Custom provider implementation
-- `tool_usage.rs` - Tool definition and execution
-- `configuration.rs` - Configuration loading
-- `streaming.rs` - Streaming responses
+See the [examples/](https://github.com/lazhenyi/behest/tree/main/examples) directory in the repository for more examples.
 
 ## See Also
 

@@ -24,9 +24,9 @@
 
 | Feature | Description |
 |---|---|
-| `redis` | Redis-backed store support and Redis Streams primitives |
+| `redis` | Redis-backed store support and Redis Streams primitives. Enables `RedisRuntimeEventStore` (Streams XADD/XRANGE), `RedisRuntimeStreamAdapter` (Pub/Sub), and `RedisSessionDataStore` (Hash-based session data) for the runtime event layer. |
 | `redis-cluster` | Redis Cluster support; implies `redis` |
-| `sqlx-postgres` | SQLx PostgreSQL store support |
+| `sqlx-postgres` | SQLx PostgreSQL store support. Enables `PostgresRuntimeEventStore` (`runtime_events` table with JSONB event payload) for the runtime event layer. |
 | `sqlx-mysql` | SQLx MySQL store support |
 | `sqlx-sqlite` | SQLx SQLite store support |
 | `mongodb` | MongoDB session store support |
@@ -48,7 +48,7 @@
 | Feature | Description |
 |---|---|
 | `queue` | Core event publisher traits |
-| `nats` | NATS event publisher |
+| `nats` | NATS event publisher. Enables `NatsJetStreamStreamAdapter` (per-room JetStream stream with an ephemeral pull consumer) for the runtime event layer. |
 | `queue-all` | Enables `queue`, `nats`, and `redis` |
 
 ## Server and Observability

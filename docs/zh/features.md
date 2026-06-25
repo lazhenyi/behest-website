@@ -24,9 +24,9 @@
 
 | 特性 | 描述 |
 |---|---|
-| `redis` | Redis 支持的存储和 Redis Streams 原语 |
+| `redis` | Redis 支持的存储和 Redis Streams 原语。为运行时事件层启用 `RedisRuntimeEventStore`（Streams XADD/XRANGE）、`RedisRuntimeStreamAdapter`（Pub/Sub）和 `RedisSessionDataStore`（基于 Hash 的会话数据存储）。 |
 | `redis-cluster` | Redis 集群支持；隐含 `redis` |
-| `sqlx-postgres` | SQLx PostgreSQL 存储支持 |
+| `sqlx-postgres` | SQLx PostgreSQL 存储支持。为运行时事件层启用 `PostgresRuntimeEventStore`（`runtime_events` 表，event 字段为 JSONB）。 |
 | `sqlx-mysql` | SQLx MySQL 存储支持 |
 | `sqlx-sqlite` | SQLx SQLite 存储支持 |
 | `mongodb` | MongoDB 会话存储支持 |
@@ -48,7 +48,7 @@
 | 特性 | 描述 |
 |---|---|
 | `queue` | 核心事件发布器 traits |
-| `nats` | NATS 事件发布器 |
+| `nats` | NATS 事件发布器。为运行时事件层启用 `NatsJetStreamStreamAdapter`（每个 room 独立 JetStream stream，ephemeral pull consumer）。 |
 | `queue-all` | 启用 `queue`、`nats` 和 `redis` |
 
 ## 服务器和可观测性

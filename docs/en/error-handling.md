@@ -13,20 +13,32 @@ use behest::prelude::*;
 
 match result {
     Err(Error::Provider(e)) => match e {
-        ProviderError::UnsupportedCapability(cap) => {
-            eprintln!("Provider doesn't support: {}", cap);
+        ProviderError::Authentication { provider } => {
+            eprintln!("Auth failed for provider: {provider}");
         }
-        ProviderError::Retryable(msg) => {
-            eprintln!("Temporary error, retry: {}", msg);
+        ProviderError::BadRequest { provider, message } => {
+            eprintln!("Provider {provider} rejected request: {message}");
         }
-        ProviderError::Transport(err) => {
-            eprintln!("Network error: {}", err);
+        ProviderError::RateLimited { provider, retry_after } => {
+            eprintln!("Provider {provider} rate limited, retry after: {retry_after:?}");
         }
-        ProviderError::InvalidResponse(msg) => {
-            eprintln!("Bad response from provider: {}", msg);
+        ProviderError::Timeout { provider } => {
+            eprintln!("Provider {provider} timed out");
         }
-        ProviderError::Adapter(msg) => {
-            eprintln!("Adapter-specific error: {}", msg);
+        ProviderError::Overloaded { provider } => {
+            eprintln!("Provider {provider} is overloaded");
+        }
+        ProviderError::Unsupported { provider, feature } => {
+            eprintln!("Provider {provider} does not support: {feature}");
+        }
+        ProviderError::Transport { provider, source } => {
+            eprintln!("Transport error for {provider}: {source}");
+        }
+        ProviderError::Decode { provider, message } => {
+            eprintln!("Failed to decode response from {provider}: {message}");
+        }
+        ProviderError::Provider { provider, status, message } => {
+            eprintln!("Provider {provider} error (status: {status:?}): {message}");
         }
     },
     // ... handle other errors
@@ -42,20 +54,17 @@ use behest::prelude::*;
 
 match result {
     Err(Error::Tool(e)) => match e {
-        ToolError::NotFound(name) => {
-            eprintln!("Tool not found: {}", name);
+        ToolError::NotFound { name } => {
+            eprintln!("Tool not found: {name}");
         }
-        ToolError::InvalidArguments(msg) => {
-            eprintln!("Invalid tool arguments: {}", msg);
+        ToolError::InvalidArguments { name, message } => {
+            eprintln!("Tool {name} received invalid arguments: {message}");
         }
-        ToolError::ExecutionFailed(msg) => {
-            eprintln!("Tool execution failed: {}", msg);
+        ToolError::Execution { name, message } => {
+            eprintln!("Tool {name} execution failed: {message}");
         }
-        ToolError::Timeout(duration) => {
-            eprintln!("Tool timed out after {:?}", duration);
-        }
-        ToolError::Unimplemented(name) => {
-            eprintln!("External tool not implemented: {}", name);
+        ToolError::NotImplemented { name } => {
+            eprintln!("Tool {name} is not implemented");
         }
     },
     // ... handle other errors
@@ -71,17 +80,23 @@ use behest::prelude::*;
 
 match result {
     Err(Error::Storage(e)) => match e {
-        StorageError::NotFound(key) => {
-            eprintln!("Key not found: {}", key);
+        StorageError::NotFound { id } => {
+            eprintln!("Entity not found: {id}");
         }
-        StorageError::ConnectionFailed(msg) => {
-            eprintln!("Storage connection failed: {}", msg);
+        StorageError::ConnectionFailed { backend, message, .. } => {
+            eprintln!("Storage connection failed ({backend}): {message}");
         }
-        StorageError::Serialization(msg) => {
-            eprintln!("Serialization error: {}", msg);
+        StorageError::SerializationFailed { message, .. } => {
+            eprintln!("Serialization error: {message}");
         }
-        StorageError::Internal(msg) => {
-            eprintln!("Internal storage error: {}", msg);
+        StorageError::BackendError { backend, message, .. } => {
+            eprintln!("Storage backend error ({backend}): {message}");
+        }
+        StorageError::MigrationFailed { backend, message, .. } => {
+            eprintln!("Storage migration failed ({backend}): {message}");
+        }
+        StorageError::DataCorruption { field, message, .. } => {
+            eprintln!("Data corruption in {field}: {message}");
         }
     },
     // ... handle other errors
@@ -97,17 +112,14 @@ use behest::prelude::*;
 
 match result {
     Err(Error::Context(e)) => match e {
-        ContextError::AdapterFailed(msg) => {
-            eprintln!("Context adapter failed: {}", msg);
+        ContextError::AdapterFailed { adapter, message } => {
+            eprintln!("Context adapter {adapter} failed: {message}");
         }
-        ContextError::TokenLimitExceeded {
-            limit,
-            actual,
-        } => {
-            eprintln!(
-                "Context too long: {} tokens (limit: {})",
-                actual, limit
-            );
+        ContextError::InvalidInput { message } => {
+            eprintln!("Invalid context input: {message}");
+        }
+        ContextError::AdapterNotFound { adapter } => {
+            eprintln!("Context adapter {adapter} not found");
         }
     },
     // ... handle other errors
@@ -116,33 +128,34 @@ match result {
 
 ### RuntimeError
 
-Errors from the runtime:
+Errors from the runtime. `RuntimeError` is defined in `behest::runtime::error` and is NOT a variant of the top-level `Error` enum:
 
 ```rust
-use behest::prelude::*;
+use behest::runtime::RuntimeError;
 
 match result {
-    Err(Error::Runtime(e)) => match e {
-        RuntimeError::SessionClosed => {
-            eprintln!("Session is closed");
-        }
-        RuntimeError::PolicyViolation(msg) => {
-            eprintln!("Policy violation: {}", msg);
-        }
-        RuntimeError::DoomLoopDetected => {
-            eprintln!("Doom loop detected");
-        }
-        RuntimeError::LimitExceeded(limit) => {
-            eprintln!("Limit exceeded: {}", limit);
-        }
-    },
-    // ... handle other errors
+    Err(RuntimeError::ProviderNotFound(name)) => {
+        eprintln!("Provider not found: {name}");
+    }
+    Err(RuntimeError::SessionBusy(id)) => {
+        eprintln!("Session {id} is busy");
+    }
+    Err(RuntimeError::IterationLimitExceeded(max)) => {
+        eprintln!("Iteration limit {max} exceeded");
+    }
+    Err(RuntimeError::InputRejected { input_id, reason }) => {
+        eprintln!("Input {input_id} rejected: {reason}");
+    }
+    Err(RuntimeError::Storage(e)) => {
+        eprintln!("Storage error: {e}");
+    }
+    // ... handle other variants
 }
 ```
 
 ## Top-Level Error
 
-The top-level `Error` enum wraps all error types:
+The top-level `Error` enum wraps four error categories plus config errors:
 
 ```rust
 use behest::prelude::*;
@@ -156,12 +169,12 @@ match result {
         Error::Tool(e) => { /* Handle tool error */ }
         Error::Storage(e) => { /* Handle storage error */ }
         Error::Context(e) => { /* Handle context error */ }
-        Error::Runtime(e) => { /* Handle runtime error */ }
-        Error::Config(e) => { /* Handle config error */ }
-        Error::Internal(msg) => { /* Handle internal error */ }
+        Error::Config(msg) => { /* Handle config error */ }
     },
 }
 ```
+
+Note: `RuntimeError` is NOT a variant of the top-level `Error`. It is a separate error type used by `AgentRuntime::run()`.
 
 ## Result Type
 
@@ -184,16 +197,13 @@ Use `?` operator for error propagation:
 use behest::prelude::*;
 
 async fn process_request() -> Result<ChatResponse> {
-    let config = AgentConfig::builder()
-        .with_file("behest.toml")?
-        .build()?;
-
-    let runtime = config.into_runtime().await?;
+    let mut registry = ProviderRegistry::new();
+    // ... register providers ...
 
     let request = ChatRequest::new(ModelName::new("gpt-4"))
         .with_user_text("Hello!");
 
-    let response = runtime.complete(request).await?;
+    let response = registry.complete(&ProviderId::new("openai"), request).await?;
     Ok(response)
 }
 ```
@@ -205,11 +215,33 @@ Add context to errors using `map_err`:
 ```rust
 use behest::prelude::*;
 
-let response = runtime.complete(request).await
+let response = registry.complete(&provider_id, request).await
     .map_err(|e| {
         eprintln!("Failed to complete request: {}", e);
         e
     })?;
+```
+
+## Retryable Errors
+
+`ProviderError` has an `is_retryable()` method for checking if a retry might succeed:
+
+```rust
+if e.is_retryable() {
+    // Retry with backoff
+}
+```
+
+Retryable variants: `RateLimited`, `Timeout`, `Overloaded`, `Transport`.
+
+## Context Overflow Detection
+
+`ProviderError` has an `is_context_overflow()` method that detects when the request exceeded the model's context window:
+
+```rust
+if e.is_context_overflow() {
+    // Trigger compaction and retry
+}
 ```
 
 ## Best Practices
@@ -218,7 +250,7 @@ let response = runtime.complete(request).await
 2. **Provide context**: Add context to errors for better debugging
 3. **Use `?` operator**: Propagate errors with `?` for cleaner code
 4. **Log errors**: Log errors for debugging and monitoring
-5. **Retry on transient errors**: Retry on `ProviderError::Retryable`
+5. **Retry on transient errors**: Use `is_retryable()` to decide retry
 6. **Graceful degradation**: Handle errors gracefully in production
 
 ## Example: Complete Error Handling
@@ -227,16 +259,17 @@ let response = runtime.complete(request).await
 use behest::prelude::*;
 
 async fn safe_complete(
-    runtime: &AgentRuntime,
+    registry: &ProviderRegistry,
+    provider_id: &ProviderId,
     request: ChatRequest,
 ) -> Result<ChatResponse> {
     let mut retries = 3;
-    
+
     loop {
-        match runtime.complete(request.clone()).await {
+        match registry.complete(provider_id, request.clone()).await {
             Ok(response) => return Ok(response),
-            Err(Error::Provider(ProviderError::Retryable(msg))) if retries > 0 => {
-                eprintln!("Retrying after error: {}", msg);
+            Err(Error::Provider(e)) if e.is_retryable() && retries > 0 => {
+                eprintln!("Retrying after error: {e}");
                 retries -= 1;
                 tokio::time::sleep(std::time::Duration::from_secs(1)).await;
             }
