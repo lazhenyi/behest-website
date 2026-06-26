@@ -1,6 +1,7 @@
 import { getDocBySlug, markdownToHtml, getAllDocs } from '@/lib/docs'
 import { notFound } from 'next/navigation'
 import { type Locale } from '@/app/[lang]/dictionaries'
+import JsonLd from '@/components/JsonLd'
 
 export async function generateStaticParams() {
   const locales: Locale[] = ['en', 'zh']
@@ -20,9 +21,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Loc
   const { lang, slug } = await params
   try {
     const doc = getDocBySlug(lang, slug)
+    const title = doc.frontmatter.title || slug
+    const description = doc.frontmatter.description || ''
     return {
-      title: `${doc.frontmatter.title || slug} | behest`,
-      description: doc.frontmatter.description || '',
+      title,
+      description,
+      alternates: {
+        canonical: `https://behest.dev/${lang}/docs/${slug}`,
+      },
+      openGraph: {
+        title: `${title} | behest`,
+        description,
+        type: 'article',
+        url: `https://behest.dev/${lang}/docs/${slug}`,
+      },
     }
   } catch {
     return {
@@ -38,13 +50,21 @@ export default async function DocPage({ params }: { params: Promise<{ lang: Loca
     const content = await markdownToHtml(doc.content)
 
     return (
-      <article>
-        <h1 className="text-3xl font-bold mb-6">{doc.frontmatter.title || slug}</h1>
-        <div
-          className="prose dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: content }}
+      <>
+        <JsonLd
+          type="article"
+          title={doc.frontmatter.title || slug}
+          description={doc.frontmatter.description}
+          url={`https://behest.dev/${lang}/docs/${slug}`}
         />
-      </article>
+        <article>
+          <h1 className="text-3xl font-bold mb-6">{doc.frontmatter.title || slug}</h1>
+          <div
+            className="prose dark:prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </article>
+      </>
     )
   } catch {
     notFound()

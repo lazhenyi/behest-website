@@ -90,8 +90,9 @@ export default function HomePage({ lang }: { lang: Locale }) {
           </div>
 
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold font-mono uppercase tracking-tighter mb-6">
-            <span className="neon-purple" style={{ color: 'var(--accent)' }}>be</span>
-            <span className="neon-cyan" style={{ color: 'var(--cyan)' }}>hest</span>
+            <span className="sr-only">behest - Rust-native AI Agent Runtime</span>
+            <span aria-hidden="true" className="neon-purple" style={{ color: 'var(--accent)' }}>be</span>
+            <span aria-hidden="true" className="neon-cyan" style={{ color: 'var(--cyan)' }}>hest</span>
           </h1>
 
           <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-mono" style={{ color: 'var(--muted)' }}>
