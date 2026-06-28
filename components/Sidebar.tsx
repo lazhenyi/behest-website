@@ -3,140 +3,192 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type Locale } from '@/app/[lang]/dictionaries'
+import { nav, type NavColor, type NavGroup, type NavItem } from '@/lib/nav'
+
+type Dict = {
+  nav?: {
+    groups?: Record<string, { title?: string }>
+    pages?: Record<string, string>
+  }
+  sidebar?: Record<string, string>
+  page?: { on_this_page?: string; related?: string; edit_on_github?: string }
+}
 
 interface SidebarProps {
   lang: Locale
-  dict: any
+  dict: Dict
+}
+
+function colorVar(c: NavColor): string {
+  const map: Record<NavColor, string> = {
+    cyan: 'var(--sage)',
+    accent: 'var(--accent)',
+    pink: 'var(--coral)',
+    yellow: 'var(--warm-yellow)',
+  }
+  return map[c]
+}
+
+function resolveTitle(dict: Dict, key: string | undefined): string {
+  if (!key) return ''
+  if (key.startsWith('nav.pages.')) {
+    const slug = key.slice('nav.pages.'.length)
+    return dict.nav?.pages?.[slug] ?? slug
+  }
+  if (key.startsWith('nav.groups.')) {
+    const id = key.slice('nav.groups.'.length)
+    return dict.nav?.groups?.[id]?.title ?? id
+  }
+  return key
 }
 
 export default function Sidebar({ lang, dict }: SidebarProps) {
   const pathname = usePathname()
 
-  const sections = [
-    {
-      title: dict.sidebar.getting_started,
-      color: 'var(--cyan)',
-      items: [
-        { name: dict.sidebar.introduction, href: `/${lang}/docs` },
-        { name: dict.sidebar.quick_start, href: `/${lang}/docs/getting-started` },
-        { name: dict.sidebar.examples, href: `/${lang}/docs/examples` },
-      ],
-    },
-    {
-      title: dict.sidebar.core_concepts,
-      color: 'var(--accent)',
-      items: [
-        { name: dict.sidebar.providers, href: `/${lang}/docs/providers` },
-        { name: dict.sidebar.tools, href: `/${lang}/docs/tools` },
-        { name: dict.sidebar.sessions, href: `/${lang}/docs/sessions` },
-        { name: dict.sidebar.storage, href: `/${lang}/docs/storage` },
-        { name: dict.sidebar.configuration, href: `/${lang}/docs/configuration` },
-        { name: dict.sidebar.error_handling, href: `/${lang}/docs/error-handling` },
-      ],
-    },
-    {
-      title: dict.sidebar.advanced,
-      color: 'var(--pink)',
-      items: [
-        { name: dict.sidebar.architecture, href: `/${lang}/docs/architecture` },
-        { name: dict.sidebar.rag, href: `/${lang}/docs/rag` },
-        { name: dict.sidebar.events, href: `/${lang}/docs/events` },
-        { name: dict.sidebar.feature_flags, href: `/${lang}/docs/features` },
-        { name: dict.sidebar.api_reference, href: `/${lang}/docs/api-reference` },
-      ],
-    },
-    {
-      title: dict.sidebar.development,
-      color: 'var(--yellow)',
-      items: [
-        { name: dict.sidebar.development_guide, href: `/${lang}/docs/development` },
-      ],
-    },
-  ]
-
   return (
     <aside
-      className="w-64 min-h-screen border-r-3 p-4 hidden lg:block"
-      style={{
-        borderColor: 'var(--border-subtle)',
-        background: 'var(--surface)',
-      }}
+      className="w-64 h-screen p-4 hidden lg:block shrink-0 sticky top-0 overflow-y-auto"
+      style={{ background: 'var(--bg)' }}
     >
-      <nav className="space-y-6">
-        {sections.map((section) => (
-          <div key={section.title}>
-            <h3
-              className="text-xs font-mono font-bold uppercase tracking-widest mb-3 pb-2 border-b-2"
-              style={{
-                color: section.color,
-                borderColor: 'var(--border-subtle)',
-              }}
-            >
-              <span
-                className="inline-block w-2 h-2 mr-2"
-                style={{ background: section.color }}
-              />
-              {section.title}
-            </h3>
-            <ul className="space-y-0.5">
-              {section.items.map((item) => {
-                const isActive = pathname === item.href
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="block px-3 py-2 text-sm font-mono transition-all duration-100 border-l-3"
-                      style={{
-                        background: isActive ? 'var(--accent-soft)' : 'transparent',
-                        color: isActive ? 'var(--cyan)' : 'var(--muted)',
-                        borderColor: isActive ? 'var(--accent)' : 'transparent',
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.color = 'var(--fg)'
-                          e.currentTarget.style.background = 'var(--surface-overlay)'
-                          e.currentTarget.style.borderColor = 'var(--border-subtle)'
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.color = 'var(--muted)'
-                          e.currentTarget.style.background = 'transparent'
-                          e.currentTarget.style.borderColor = 'transparent'
-                        }
-                      }}
-                    >
-                      {isActive && (
-                        <span
-                          className="inline-block w-1.5 h-1.5 mr-2"
-                          style={{ background: 'var(--accent)' }}
-                        />
-                      )}
-                      {item.name}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+      <nav className="space-y-6 py-4">
+        {nav.map((group) => (
+          <NavSection
+            key={group.id}
+            group={group}
+            lang={lang}
+            pathname={pathname}
+            dict={dict}
+          />
         ))}
       </nav>
 
-      {/* Decorative corner */}
+      {/* Decorative footer */}
       <div
-        className="mt-8 p-3 border-3"
+        className="mt-8 p-4"
         style={{
-          borderColor: 'var(--border-subtle)',
-          background: 'var(--bg)',
+          background: 'var(--surface)',
+          borderRadius: '20px',
+          boxShadow: 'var(--clay-shadow-sm)',
         }}
       >
-        <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>
+        <p className="text-xs" style={{ color: 'var(--muted)' }}>
           <span style={{ color: 'var(--accent)' }}>{'>'}</span> Built with Rust
         </p>
-        <p className="text-xs font-mono mt-1" style={{ color: 'var(--muted)' }}>
-          <span style={{ color: 'var(--cyan)' }}>{'>'}</span> Type-safe by default
+        <p className="text-xs mt-1.5" style={{ color: 'var(--muted)' }}>
+          <span style={{ color: 'var(--sage)' }}>{'>'}</span> Type-safe by default
         </p>
       </div>
     </aside>
+  )
+}
+
+function NavSection({
+  group,
+  lang,
+  pathname,
+  dict,
+}: {
+  group: NavGroup
+  lang: Locale
+  pathname: string
+  dict: Dict
+}) {
+  return (
+    <div>
+      <h3
+        className="text-[11px] font-bold uppercase tracking-widest mb-3 pb-2 flex items-center gap-2"
+        style={{
+          color: colorVar(group.color),
+        }}
+      >
+        <span
+          className="inline-block w-2 h-2"
+          style={{
+            background: colorVar(group.color),
+            borderRadius: '50%',
+          }}
+        />
+        {resolveTitle(dict, group.titleKey)}
+      </h3>
+      <ul className="space-y-0.5">
+        {group.items.map((item) => (
+          <NavLink
+            key={item.slug}
+            item={item}
+            lang={lang}
+            pathname={pathname}
+            dict={dict}
+          />
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function NavLink({
+  item,
+  lang,
+  pathname,
+  dict,
+}: {
+  item: NavItem
+  lang: Locale
+  pathname: string
+  dict: Dict
+}) {
+  const href = `/${lang}/docs/${item.slug}`
+  const isActive = pathname === href || pathname === `${href}/`
+  const title = resolveTitle(dict, item.titleKey)
+
+  return (
+    <li>
+      <Link
+        href={href}
+        className="block px-3 py-2 text-sm transition-all duration-200"
+        style={{
+          background: isActive ? 'var(--accent-soft)' : 'transparent',
+          color: isActive ? 'var(--accent)' : 'var(--muted)',
+          borderRadius: '12px',
+          textDecoration: 'none',
+        }}
+        onMouseEnter={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.color = 'var(--fg)'
+            e.currentTarget.style.background = 'var(--surface)'
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isActive) {
+            e.currentTarget.style.color = 'var(--muted)'
+            e.currentTarget.style.background = 'transparent'
+          }
+        }}
+      >
+        <span className="flex items-center gap-2">
+          {isActive && (
+            <span
+              className="inline-block w-1.5 h-1.5"
+              style={{
+                background: 'var(--accent)',
+                borderRadius: '50%',
+              }}
+            />
+          )}
+          <span className="flex-1">{title}</span>
+          {item.badge && (
+            <span
+              className="text-[9px] uppercase tracking-widest px-2 py-0.5 font-semibold"
+              style={{
+                background: 'var(--coral-soft)',
+                color: 'var(--coral)',
+                borderRadius: '50px',
+              }}
+            >
+              {item.badge}
+            </span>
+          )}
+        </span>
+      </Link>
+    </li>
   )
 }
