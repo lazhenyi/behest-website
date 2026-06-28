@@ -2,72 +2,124 @@
 
 import Link from 'next/link'
 import { type Locale } from '@/app/[lang]/dictionaries'
+import { nav, type NavColor } from '@/lib/nav'
 
-export default function HomePage({ lang }: { lang: Locale }) {
+const COLOR_VAR: Record<NavColor, string> = {
+  cyan: 'var(--sage)',
+  accent: 'var(--accent)',
+  pink: 'var(--coral)',
+  yellow: 'var(--warm-yellow)',
+}
+
+type Dict = {
+  nav?: {
+    home?: string
+    docs?: string
+    github?: string
+    groups?: Record<string, { title?: string }>
+    pages?: Record<string, string>
+  }
+  home?: {
+    tag?: string
+    tagline?: string
+    get_started?: string
+    source_code?: string
+    browse_by_component?: string
+    browse_by_component_subtitle?: string
+    view_all?: string
+    items?: string
+  }
+}
+
+const t = (dict: Dict, key: string): string => {
+  const parts = key.split('.')
+  let cur: unknown = dict
+  for (const p of parts) {
+    if (cur && typeof cur === 'object' && p in (cur as Record<string, unknown>)) {
+      cur = (cur as Record<string, unknown>)[p]
+    } else {
+      return key
+    }
+  }
+  // If we reached an object with a .title property, use that (for nav.groups.*)
+  if (cur && typeof cur === 'object' && 'title' in (cur as Record<string, unknown>)) {
+    const title = (cur as Record<string, unknown>).title
+    return typeof title === 'string' ? title : key
+  }
+  return typeof cur === 'string' ? cur : key
+}
+
+export default function HomePage({ lang, dict }: { lang: Locale; dict: Dict }) {
   return (
-    <div className="min-h-screen grid-bg relative">
-      {/* Noise overlay */}
-      <div className="noise absolute inset-0 pointer-events-none" />
-
+    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
       {/* Header */}
       <header
-        className="sticky top-0 z-50 border-b-3"
+        className="sticky top-0 z-50"
         style={{
           background: 'var(--surface)',
-          borderColor: 'var(--accent)',
+          boxShadow: 'var(--clay-shadow-sm)',
+          borderRadius: '0 0 24px 24px',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-16">
             <Link
               href={`/${lang}`}
-              className="text-lg font-bold tracking-tight font-mono uppercase"
-              style={{ color: 'var(--cyan)' }}
+              className="text-lg font-bold tracking-tight"
+              style={{ color: 'var(--accent)' }}
             >
-              <span className="neon-cyan">behest</span>
+              <span>behest</span>
+              <span
+                className="ml-2 text-[10px] font-semibold px-2.5 py-0.5"
+                style={{
+                  color: 'var(--coral)',
+                  background: 'var(--coral-soft)',
+                  borderRadius: '50px',
+                }}
+              >
+                v0.4
+              </span>
             </Link>
-            <nav className="flex items-center gap-2">
+            <nav className="flex items-center gap-3">
               <Link
                 href={`/${lang}/docs`}
-                className="px-3 py-1.5 text-sm font-mono uppercase tracking-wider border-2 transition-all duration-100"
+                className="px-4 py-2 text-sm font-medium tracking-wide"
                 style={{
                   color: 'var(--fg)',
-                  borderColor: 'transparent',
+                  borderRadius: '50px',
+                  transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--cyan)'
-                  e.currentTarget.style.borderColor = 'var(--cyan)'
-                  e.currentTarget.style.boxShadow = '2px 2px 0 0 var(--cyan)'
+                  e.currentTarget.style.background = 'var(--surface-overlay)'
+                  e.currentTarget.style.boxShadow = 'var(--clay-shadow-sm)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--fg)'
-                  e.currentTarget.style.borderColor = 'transparent'
+                  e.currentTarget.style.background = 'transparent'
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                Docs
+                {t(dict, 'nav.docs')}
               </Link>
               <a
                 href="https://github.com/lazhenyi/behest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 text-sm font-mono uppercase tracking-wider border-2 transition-all duration-100"
+                className="px-4 py-2 text-sm font-medium tracking-wide flex items-center gap-1.5"
                 style={{
                   color: 'var(--fg)',
-                  borderColor: 'transparent',
+                  borderRadius: '50px',
+                  transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--pink)'
-                  e.currentTarget.style.borderColor = 'var(--pink)'
-                  e.currentTarget.style.boxShadow = '2px 2px 0 0 var(--pink)'
+                  e.currentTarget.style.background = 'var(--surface-overlay)'
+                  e.currentTarget.style.boxShadow = 'var(--clay-shadow-sm)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--fg)'
-                  e.currentTarget.style.borderColor = 'transparent'
+                  e.currentTarget.style.background = 'transparent'
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                GitHub
+                {t(dict, 'nav.github')}
               </a>
             </nav>
           </div>
@@ -75,183 +127,220 @@ export default function HomePage({ lang }: { lang: Locale }) {
       </header>
 
       {/* Hero */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center">
-          {/* Decorative tag */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border-2 font-mono text-xs uppercase tracking-widest"
-            style={{
-              borderColor: 'var(--accent)',
-              color: 'var(--accent)',
-              background: 'var(--accent-soft)',
-            }}
+          {/* Tag badge */}
+          <div
+            className="clay-badge mx-auto mb-8"
+            style={{ color: 'var(--accent)' }}
           >
-            <span className="w-2 h-2 animate-pulse" style={{ background: 'var(--pink)' }} />
-            Rust-Native AI Agent Runtime
+            <span
+              className="w-2 h-2 animate-pulse"
+              style={{
+                background: 'var(--accent)',
+                borderRadius: '50%',
+              }}
+            />
+            <span className="font-mono uppercase">{t(dict, 'home.tag')}</span>
           </div>
 
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold font-mono uppercase tracking-tighter mb-6">
+          {/* Title */}
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
             <span className="sr-only">behest - Rust-native AI Agent Runtime</span>
-            <span aria-hidden="true" className="neon-purple" style={{ color: 'var(--accent)' }}>be</span>
-            <span aria-hidden="true" className="neon-cyan" style={{ color: 'var(--cyan)' }}>hest</span>
+            <span
+              aria-hidden="true"
+              style={{
+                background: 'linear-gradient(135deg, var(--accent) 0%, var(--coral) 50%, var(--sage) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              behest
+            </span>
           </h1>
 
-          <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-mono" style={{ color: 'var(--muted)' }}>
-            <span style={{ color: 'var(--pink)' }}>{'>'}</span>{' '}
-            Building blocks for production AI agent runtimes
-            <span className="animate-pulse">_</span>
+          {/* Tagline */}
+          <p
+            className="text-lg sm:text-xl max-w-2xl mx-auto mb-12"
+            style={{ color: 'var(--muted)' }}
+          >
+            <span style={{ color: 'var(--accent)' }}>{'>'}</span>{' '}
+            {t(dict, 'home.tagline')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex justify-center gap-4">
             <Link
-              href={`/${lang}/docs/getting-started`}
-              className="px-8 py-3 font-mono font-bold uppercase tracking-wider text-sm border-3 transition-all duration-100"
-              style={{
-                background: 'var(--accent)',
-                color: '#fff',
-                borderColor: 'var(--accent)',
-                boxShadow: '4px 4px 0 0 var(--cyan)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translate(-2px, -2px)'
-                e.currentTarget.style.boxShadow = '6px 6px 0 0 var(--cyan)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0, 0)'
-                e.currentTarget.style.boxShadow = '4px 4px 0 0 var(--cyan)'
-              }}
+              href={`/${lang}/docs/intro/quick-start`}
+              className="clay-btn-primary px-8 py-3.5 font-semibold text-sm tracking-wide"
             >
-              Get Started →
+              {t(dict, 'home.get_started')} →
             </Link>
             <a
               href="https://github.com/lazhenyi/behest"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 font-mono font-bold uppercase tracking-wider text-sm border-3 transition-all duration-100"
-              style={{
-                background: 'transparent',
-                color: 'var(--fg)',
-                borderColor: 'var(--fg)',
-                boxShadow: '4px 4px 0 0 var(--pink)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translate(-2px, -2px)'
-                e.currentTarget.style.boxShadow = '6px 6px 0 0 var(--pink)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0, 0)'
-                e.currentTarget.style.boxShadow = '4px 4px 0 0 var(--pink)'
-              }}
+              className="clay-btn-secondary px-8 py-3.5 font-semibold text-sm tracking-wide"
             >
-              Source Code
+              {t(dict, 'home.source_code')}
             </a>
           </div>
 
           {/* Code preview */}
           <div
-            className="mt-12 max-w-2xl mx-auto text-left border-3 p-6"
+            className="mt-14 max-w-2xl mx-auto text-left p-6"
             style={{
-              borderColor: 'var(--border-subtle)',
-              background: 'var(--code-bg)',
-              boxShadow: '6px 6px 0 0 var(--accent)',
+              background: 'var(--surface)',
+              borderRadius: '24px',
+              boxShadow: 'var(--clay-shadow)',
+              border: 'none',
             }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-3 h-3" style={{ background: 'var(--pink)' }} />
-              <span className="w-3 h-3" style={{ background: 'var(--yellow)' }} />
-              <span className="w-3 h-3" style={{ background: 'var(--cyan)' }} />
-              <span className="ml-2 text-xs font-mono" style={{ color: 'var(--muted)' }}>main.rs</span>
+              <span
+                className="w-3 h-3"
+                style={{ background: 'var(--coral)', borderRadius: '50%' }}
+              />
+              <span
+                className="w-3 h-3"
+                style={{ background: 'var(--warm-yellow)', borderRadius: '50%' }}
+              />
+              <span
+                className="w-3 h-3"
+                style={{ background: 'var(--sage)', borderRadius: '50%' }}
+              />
+              <span
+                className="ml-2 text-xs font-mono"
+                style={{ color: 'var(--muted)' }}
+              >
+                main.rs
+              </span>
             </div>
-            <pre className="!bg-transparent !border-0 !p-0 !m-0 text-sm">
+            <pre
+              className="!bg-transparent !border-0 !p-0 !m-0 !shadow-none text-sm"
+              style={{ boxShadow: 'none' }}
+            >
               <code>
                 <span style={{ color: 'var(--accent)' }}>use</span>{' '}
-                <span style={{ color: 'var(--cyan)' }}>behest</span>::{'{'}
-                <span style={{ color: 'var(--pink)' }}>Agent</span>,{' '}
-                <span style={{ color: 'var(--pink)' }}>Tool</span>
+                <span style={{ color: 'var(--sage)' }}>behest</span>::{'{'}
+                <span style={{ color: 'var(--coral)' }}>AgentRuntime</span>,{' '}
+                <span style={{ color: 'var(--coral)' }}>Extensions</span>
                 {'}'};{'\n'}
                 {'\n'}
-                <span style={{ color: 'var(--accent)' }}>let</span> agent ={' '}
-                <span style={{ color: 'var(--pink)' }}>Agent</span>::{'\n'}
-                {'  '}<span style={{ color: 'var(--muted)' }}>builder</span>(){'\n'}
-                {'  '}.<span style={{ color: 'var(--yellow)' }}>provider</span>(
-                <span style={{ color: 'var(--cyan)' }}>&quot;openai&quot;</span>){'\n'}
-                {'  '}.<span style={{ color: 'var(--yellow)' }}>tool</span>(
-                <span style={{ color: 'var(--pink)' }}>WebSearch</span>){'\n'}
-                {'  '}.<span style={{ color: 'var(--yellow)' }}>build</span>().{'\n'}
+                <span style={{ color: 'var(--accent)' }}>let</span> exts ={' '}
+                <span style={{ color: 'var(--coral)' }}>Extensions</span>::new();{'\n'}
                 {'  '}
-                <span style={{ color: 'var(--accent)' }}>await</span>?;
+                <span style={{ color: 'var(--muted)' }}>// hot-swap any provider at runtime</span>
+                {'\n'}
+                {'  '}
+                <span style={{ color: 'var(--muted)' }}>// </span>
+                <span style={{ color: 'var(--warm-yellow)' }}>exts.chat_providers.register_or_replace</span>
+                (…);{'\n'}
+                {'\n'}
+                <span style={{ color: 'var(--accent)' }}>let</span> runtime ={' '}
+                <span style={{ color: 'var(--coral)' }}>AgentRuntime</span>::new(exts, policy).await?;
               </code>
             </pre>
           </div>
         </div>
 
-        {/* Feature cards */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              title: 'TYPE-SAFE',
-              desc: 'Leverage Rust\'s type system for compile-time guarantees and runtime safety.',
-              color: 'var(--accent)',
-              icon: '{}',
-            },
-            {
-              title: 'MODULAR',
-              desc: 'Composable building blocks that adapt to your specific use case.',
-              color: 'var(--cyan)',
-              icon: '[]',
-            },
-            {
-              title: 'PRODUCTION',
-              desc: 'Built for real-world AI agent workloads with performance in mind.',
-              color: 'var(--pink)',
-              icon: '<>',
-            },
-          ].map((feature) => (
-            <div
-              key={feature.title}
-              className="p-6 border-3 transition-all duration-100 cursor-pointer"
-              style={{
-                borderColor: 'var(--border-subtle)',
-                background: 'var(--surface)',
-                boxShadow: `4px 4px 0 0 ${feature.color}`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translate(-2px, -2px)'
-                e.currentTarget.style.boxShadow = `6px 6px 0 0 ${feature.color}`
-                e.currentTarget.style.borderColor = feature.color
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0, 0)'
-                e.currentTarget.style.boxShadow = `4px 4px 0 0 ${feature.color}`
-                e.currentTarget.style.borderColor = 'var(--border-subtle)'
-              }}
-            >
-              <div
-                className="text-2xl font-mono font-bold mb-3"
-                style={{ color: feature.color }}
+        {/* Component card grid */}
+        <section className="mt-28">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2
+                className="text-2xl font-bold tracking-tight"
+                style={{ color: 'var(--fg-bright)' }}
               >
-                {feature.icon}
-              </div>
-              <h3
-                className="text-sm font-mono font-bold tracking-widest mb-2"
-                style={{ color: feature.color }}
+                {t(dict, 'home.browse_by_component')}
+              </h2>
+              <p
+                className="text-sm mt-2"
+                style={{ color: 'var(--muted)' }}
               >
-                {feature.title}
-              </h3>
-              <p className="text-sm" style={{ color: 'var(--muted)' }}>
-                {feature.desc}
+                {t(dict, 'home.browse_by_component_subtitle')}
               </p>
             </div>
-          ))}
-        </div>
+            <Link
+              href={`/${lang}/docs`}
+              className="text-sm font-medium"
+              style={{ color: 'var(--accent)' }}
+            >
+              {t(dict, 'home.view_all')}
+            </Link>
+          </div>
 
-        {/* Bottom decorative bar */}
-        <div className="mt-24 flex items-center gap-4">
-          <div className="flex-1 h-0.5" style={{ background: 'var(--border-subtle)' }} />
-          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--muted)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {nav.map((group) => {
+              const color = COLOR_VAR[group.color]
+              return (
+                <Link
+                  key={group.id}
+                  href={`/${lang}/docs/${group.landing}`}
+                  className="clay-card clay-card-hover block p-6"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span
+                      className="text-xs font-mono font-bold uppercase tracking-widest"
+                      style={{ color }}
+                    >
+                      {group.id}
+                    </span>
+                    <span
+                      className="text-xs font-mono px-2 py-0.5"
+                      style={{
+                        color: 'var(--muted)',
+                        background: 'var(--bg)',
+                        borderRadius: '50px',
+                      }}
+                    >
+                      {group.items.length}
+                    </span>
+                  </div>
+                  <h3
+                    className="text-lg font-bold mb-2"
+                    style={{ color: 'var(--fg-bright)' }}
+                  >
+                    {t(dict, group.titleKey)}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: 'var(--muted)' }}
+                  >
+                    {group.summary}
+                  </p>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Bottom decorative divider */}
+        <div className="mt-28 flex items-center gap-4">
+          <div
+            className="flex-1"
+            style={{
+              height: '2px',
+              background: 'var(--border-subtle)',
+              borderRadius: '1px',
+            }}
+          />
+          <span
+            className="text-xs tracking-widest"
+            style={{ color: 'var(--muted)' }}
+          >
             Built with Rust // Powered by AI
           </span>
-          <div className="flex-1 h-0.5" style={{ background: 'var(--border-subtle)' }} />
+          <div
+            className="flex-1"
+            style={{
+              height: '2px',
+              background: 'var(--border-subtle)',
+              borderRadius: '1px',
+            }}
+          />
         </div>
       </main>
     </div>
