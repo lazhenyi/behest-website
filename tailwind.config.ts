@@ -6,7 +6,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -15,32 +15,24 @@ const config: Config = {
         sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
       colors: {
-        neon: {
-          purple: '#7C3AED',
-          cyan: '#06B6D4',
-          pink: '#F43F5E',
-          yellow: '#FACC15',
-          green: '#22D3EE',
+        clay: {
+          bg: 'var(--bg)',
+          surface: 'var(--surface)',
+          overlay: 'var(--surface-overlay)',
+          fg: 'var(--fg)',
+          'fg-bright': 'var(--fg-bright)',
+          muted: 'var(--muted)',
+          accent: 'var(--accent)',
+          'accent-hover': 'var(--accent-hover)',
+          sage: 'var(--sage)',
+          coral: 'var(--coral)',
+          yellow: 'var(--warm-yellow)',
         },
-        surface: {
-          DEFAULT: '#0A0A0A',
-          raised: '#111111',
-          overlay: '#1A1A1A',
-        },
-      },
-      boxShadow: {
-        brutal: '4px 4px 0 0 currentColor',
-        'brutal-sm': '2px 2px 0 0 currentColor',
-        'brutal-lg': '6px 6px 0 0 currentColor',
-        'brutal-purple': '4px 4px 0 0 #7C3AED',
-        'brutal-cyan': '4px 4px 0 0 #06B6D4',
-        'brutal-pink': '4px 4px 0 0 #F43F5E',
-      },
-      borderWidth: {
-        '3': '3px',
       },
       borderRadius: {
-        'brutal': '2px',
+        clay: '24px',
+        'clay-lg': '32px',
+        'clay-pill': '50px',
       },
     },
   },
