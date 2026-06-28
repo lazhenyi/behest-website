@@ -17,26 +17,48 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```
 .
 ├── app/                    # Next.js App Router
-│   ├── [lang]/            # Dynamic language routes
-│   │   ├── docs/          # Documentation pages
+│   ├── [lang]/            # Dynamic language routes (en/zh)
+│   │   ├── docs/          # Documentation pages (component-based)
+│   │   │   ├── [...slug]/ # Dynamic catch-all for nested routes
+│   │   │   ├── layout.tsx  # Three-column layout
+│   │   │   └── page.tsx    # Docs index with group card grid
 │   │   ├── dictionaries/  # i18n dictionaries
 │   │   └── layout.tsx     # Language layout
-│   ├── globals.css        # Global styles
+│   ├── globals.css        # Global styles (brutalist neon)
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Root page (redirects to /en)
 ├── components/            # React components
+│   ├── HomePage.tsx       # Home with component card grid
+│   ├── Sidebar.tsx        # Data-driven sidebar (from lib/nav.ts)
+│   ├── Header.tsx         # Site header with lang switcher
+│   ├── DocPageClient.tsx  # Doc page renderer (article + TOC)
+│   ├── TableOfContents.tsx # Sticky right-side TOC
+│   ├── MermaidClient.tsx  # Client-side Mermaid renderer
 │   ├── Analytics.tsx      # Vercel Analytics
-│   ├── Header.tsx         # Site header
-│   └── Sidebar.tsx        # Documentation sidebar
-├── docs/                  # Markdown documentation
-│   ├── en/                # English docs
-│   └── zh/                # Chinese docs
+│   └── JsonLd.tsx         # Structured data
+├── docs/                  # Markdown documentation (nested by section)
+│   ├── en/                # English docs (10 groups, ~50 pages)
+│   │   ├── intro/         # Overview, quick-start, examples, feature-flags
+│   │   ├── core/          # ExtensionPoint, Extensions, Component, Registry, Factory
+│   │   ├── runtime/       # AgentRuntime, FSM, ModelRouter, Compaction, etc.
+│   │   ├── events/        # RuntimeInvocation, AgentEvent, EventStore, etc.
+│   │   ├── tools/         # Tool trait, registry, runtime, scopes, RAG
+│   │   ├── providers/     # ChatProvider, EmbeddingProvider, registry, adapters
+│   │   ├── storage/       # Store traits, backends
+│   │   ├── config/        # AgentConfig, errors, observability, gRPC
+│   │   ├── ops/           # ManagedRuntime, hot-reload, deployment
+│   │   └── ref/           # API reference, development, migration
+│   └── zh/               # Chinese docs (mirror layout)
 ├── lib/                   # Utility functions
-│   └── docs.ts            # Documentation helpers
-├── next.config.mjs        # Next.js configuration
-├── tailwind.config.ts     # Tailwind CSS configuration
-├── tsconfig.json          # TypeScript configuration
-└── vercel.json            # Vercel deployment configuration
+│   ├── docs.ts            # Doc loading (nested-folder walker)
+│   ├── markdown.ts        # remark → rehype pipeline (Mermaid + callouts + TOC)
+│   ├── nav.ts             # Navigation tree (single source of truth)
+│   ├── render-text.ts     # Plaintext rendering for curl users
+│   └── rehype-*.ts        # Custom rehype plugins
+├── next.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+└── vercel.json
 ```
 
 ## Features

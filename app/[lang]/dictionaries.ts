@@ -10,6 +10,10 @@ export const dictionaries = {
   zh: () => import('./dictionaries/zh.json').then((module) => module.default),
 }
 
-export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale]()
+export const getDictionary = async (locale: string) => {
+  const loader = dictionaries[locale as Locale]
+  if (!loader) {
+    throw new Error(`Unsupported locale: ${locale}`)
+  }
+  return loader()
 }

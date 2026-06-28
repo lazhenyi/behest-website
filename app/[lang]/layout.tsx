@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import '../globals.css'
 import AnalyticsComponent from '@/components/Analytics'
 import JsonLd from '@/components/JsonLd'
 import { i18n, type Locale } from './dictionaries'
+
+const VALID_LOCALES = new Set<string>(i18n.locales)
 
 const localeMap: Record<Locale, string> = {
   en: 'en_US',
@@ -46,9 +49,12 @@ export default async function LangLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ lang: Locale }>
+  params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
+  if (!VALID_LOCALES.has(lang)) {
+    notFound()
+  }
   return (
     <html lang={lang}>
       <head>

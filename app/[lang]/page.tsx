@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { type Locale } from '@/app/[lang]/dictionaries'
+import { type Locale, getDictionary } from '@/app/[lang]/dictionaries'
 import HomePage from '@/components/HomePage'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
@@ -26,5 +26,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Loc
 
 export default async function Page({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params
-  return <HomePage lang={lang} />
+  const dict = await getDictionary(lang)
+  return <HomePage lang={lang} dict={dict} />
 }

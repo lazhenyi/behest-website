@@ -1,4 +1,6 @@
 import { getDocBySlug, getAllDocs } from './docs'
+import { markdownToHtml, htmlToText } from './markdown'
+import { nav, type NavGroup } from './nav'
 
 interface RenderOptions {
   lang?: string
@@ -53,73 +55,19 @@ function renderLanding(lang: string): string {
 
 function renderDocsIndex(lang: string): string {
   const lines: string[] = []
-  const docs = getAllDocs(lang)
   const title = lang === 'zh' ? '文档目录' : 'Documentation Index'
 
   lines.push(title)
   lines.push('='.repeat(title.length))
   lines.push('')
 
-  const groups: Record<string, typeof docs> = {
-    ...(lang === 'zh'
-      ? {
-          '快速开始': [],
-          '核心概念': [],
-          '高级特性': [],
-          '开发': [],
-        }
-      : {
-          'Getting Started': [],
-          'Core Concepts': [],
-          'Advanced': [],
-          'Development': [],
-        }),
-  }
-
-  const groupKeys = Object.keys(groups)
-
-  for (const doc of docs) {
-    if (doc.slug === 'index') continue
-
-    let placed = false
-    for (const key of groupKeys) {
-      const lower = key.toLowerCase()
-      if (
-        (lower.includes('getting') && ['getting-started', 'examples'].includes(doc.slug)) ||
-        (lower.includes('快速') && ['getting-started', 'examples'].includes(doc.slug)) ||
-        (lower.includes('core') && ['providers', 'tools', 'sessions', 'storage', 'configuration', 'error-handling'].includes(doc.slug)) ||
-        (lower.includes('核心') && ['providers', 'tools', 'sessions', 'storage', 'configuration', 'error-handling'].includes(doc.slug)) ||
-        (lower.includes('advanced') && ['architecture', 'rag', 'events', 'features', 'api-reference'].includes(doc.slug)) ||
-        (lower.includes('高级') && ['architecture', 'rag', 'events', 'features', 'api-reference'].includes(doc.slug)) ||
-        (lower.includes('development') && ['development'].includes(doc.slug)) ||
-        (lower.includes('开发') && ['development'].includes(doc.slug))
-      ) {
-        groups[key].push(doc)
-        placed = true
-        break
-      }
-    }
-    if (!placed) {
-      groups[groupKeys[0]].push(doc)
-    }
-  }
-
-  if (lang === 'index') {
-    const intro = docs.find((d) => d.slug === 'index')
-    if (intro) {
-      lines.push(intro.content.trim().split('\n').slice(0, 5).join('\n'))
-      lines.push('')
-    }
-  }
-
-  for (const [section, sectionDocs] of Object.entries(groups)) {
-    if (sectionDocs.length === 0) continue
-    lines.push(`${section}:`)
-    for (const doc of sectionDocs) {
-      const desc = doc.frontmatter.description
-        ? ` - ${doc.frontmatter.description}`
-        : ''
-      lines.push(`  /${lang}/docs/${doc.slug}${desc}`)
+  for (const group of nav) {
+    const headerLabel = lang === 'zh' ? zhGroupTitle(group.id) : enGroupTitle(group.id)
+    lines.push(`${headerLabel}  (/${lang}/docs/${group.landing})`)
+    lines.push('-'.repeat(headerLabel.length + 4))
+    for (const item of group.items) {
+      const itemLabel = lang === 'zh' ? zhPageLabel(item.titleKey) : enPageLabel(item.titleKey)
+      lines.push(`  /${lang}/docs/${item.slug}  ${itemLabel}`)
     }
     lines.push('')
   }
@@ -127,9 +75,51 @@ function renderDocsIndex(lang: string): string {
   return lines.join('\n')
 }
 
-function renderDoc(lang: string, slug: string): string {
+function enGroupTitle(id: NavGroup['id']): string {
+  const map: Record<NavGroup['id'], string> = {
+    intro: 'Introduction',
+    core: 'Core Abstractions',
+    runtime: 'Agent Runtime',
+    events: 'Invocation & Events',
+    tools: 'Context & Tools',
+    providers: 'Providers',
+    storage: 'Storage',
+    config: 'Config & Cross-cutting',
+    ops: 'Operations',
+    ref: 'Reference & Help',
+  }
+  return map[id] ?? id
+}
+
+function zhGroupTitle(id: NavGroup['id']): string {
+  const map: Record<NavGroup['id'], string> = {
+    intro: '入门',
+    core: '核心抽象',
+    runtime: 'Agent 运行时',
+    events: '调用与事件',
+    tools: '上下文与工具',
+    providers: 'Provider',
+    storage: '存储',
+    config: '配置与横切关注点',
+    ops: '运维',
+    ref: '参考与帮助',
+  }
+  return map[id] ?? id
+}
+
+function enPageLabel(titleKey: string): string {
+  if (!titleKey.startsWith('nav.pages.')) return titleKey
+  return titleKey.slice('nav.pages.'.length)
+}
+
+function zhPageLabel(titleKey: string): string {
+  return enPageLabel(titleKey)
+}
+
+async function renderDoc(lang: string, slug: string): Promise<string> {
   try {
     const doc = getDocBySlug(lang, slug)
+    const { html, headings } = await markdownToHtml(doc.content)
     const lines: string[] = []
 
     if (doc.frontmatter.title) {
@@ -145,8 +135,18 @@ function renderDoc(lang: string, slug: string): string {
       lines.push('')
     }
 
-    lines.push(doc.content.trim())
+    lines.push(htmlToText(html))
     lines.push('')
+
+    if (headings.length > 0) {
+      lines.push('---')
+      lines.push('Outline:')
+      for (const h of headings) {
+        lines.push(`  ${'  '.repeat(h.depth - 2)}${h.value}`)
+      }
+      lines.push('')
+    }
+
     lines.push('---')
     lines.push(`[HTML]  /${lang}/docs/${slug}?format=html`)
     lines.push(`[Index] /${lang}/docs`)
