@@ -13,13 +13,12 @@ export default async function DocsLayout({
   const dict = await getDictionary(lang)
 
   return (
-    <div className="min-h-screen grid-bg relative">
-      <div className="noise absolute inset-0 pointer-events-none" />
+    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
       <Header lang={lang} dict={dict} />
-      <div className="flex relative z-10">
+      <div className="flex">
         <Sidebar lang={lang} dict={dict} />
-        <main className="flex-1 p-8 max-w-4xl mx-auto">
-          <div className="prose dark:prose-invert">{children}</div>
+        <main className="flex-1 min-w-0 p-8 max-w-7xl mx-auto w-full">
+          {children}
         </main>
       </div>
     </div>
