@@ -6,7 +6,6 @@ order: 5
 summary: External event publishing through NATS or Redis Streams.
 related:
   - events/agent-event
-  - runtime/background-job-pool
   - intro/feature-flags
 ---
 
@@ -36,7 +35,7 @@ pub trait EventPublisher: Send + Sync {
 
 ## How it works
 
-The `BackgroundJobPool` enqueues a `PublishToQueue` job after each event is persisted. The publisher receives the event and pushes it to the configured broker. Failures are logged and counted; the run loop does not block on publish failures.
+A `tokio::spawn` task enqueues a `PublishToQueue` job after each event is persisted. The publisher receives the event and pushes it to the configured broker. Failures are logged and counted; the run loop does not block on publish failures.
 
 ## When to use
 
@@ -47,5 +46,4 @@ The `BackgroundJobPool` enqueues a `PublishToQueue` job after each event is pers
 ## See also
 
 - **[AgentEvent](../events/agent-event.md)** — the event type.
-- **[BackgroundJobPool](../runtime/background-job-pool.md)** — the dispatcher.
 - **[Feature Flags](../intro/feature-flags.md)** — the `queue` and `nats` features.

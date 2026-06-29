@@ -152,19 +152,17 @@ assert_eq!(exts.populated_categories(), 2);
 
 ## Hot-swap via the facade
 
-Because every field is an `ExtensionPoint`, hot-swap is uniformly available. The exact protocol depends on what you are swapping — the runtime itself doesn't observe the swap; the underlying `ExtensionPoint` handles the live-reference and drain logic.
+Because every field is an `ExtensionPoint`, hot-swap is uniformly available. The runtime itself doesn't observe the swap; the underlying `ExtensionPoint` handles the live-reference and drain logic.
 
 ```rust
-// Plain replace: swap, but the old instance is dropped when the last holder releases it.
+// Atomic replace: swap the stored Arc<T>, get the old one back.
+// New get() calls return the new instance; in-flight holders of the old
+// Arc<T> keep using it until they drop it.
 let old = exts.chat_providers.replace("openai", Arc::new(new_openai))?;
-
-// Drain-aware replace: wait for in-flight requests on `openai` to finish.
-let token = exts.chat_providers.begin_replace("openai", DEFAULT_DRAIN_TIMEOUT)?;
-let ep_arc = Arc::clone(&exts.chat_providers);  // need Arc<Self> for complete_replace
-ep_arc.complete_replace("openai", Arc::new(new_openai), token).await?;
+drop(old);  // or hold and poll Arc::strong_count to wait for drain
 ```
 
-For `ManagedRuntime::reload`, the contract is the latter. See **[Drain-aware Replace](drain-aware-replace.md)** for the timing diagram and timeout semantics.
+For `ManagedRuntime::reload`, see **[Drain-aware Replace](drain-aware-replace.md)** for the natural drain story.
 
 ## Worked example — minimal composable runtime
 
@@ -217,7 +215,7 @@ No global registry; no `AgentConfig`; no builder. The runtime is **just** a stru
 ## See also
 
 - **[ExtensionPoint](extension-point.md)** — the storage primitive.
-- **[Drain-aware Replace](drain-aware-replace.md)** — the two-phase swap protocol.
+- **[Drain-aware Replace](drain-aware-replace.md)** — atomic replace with natural `Arc` drain.
 - **[AgentRuntime](../runtime/agent-runtime.md)** — the consumer of the facade.
 - **[FactoryRegistry](factory-registry.md)** — populating the facade from config.
 - **[ManagedRuntime](../ops/managed-runtime.md)** — the planned top-level orchestrator.

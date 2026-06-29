@@ -9,7 +9,6 @@ related:
   - core/extension-point
   - core/factory-registry
   - core/extensions-facade
-  - core/drain-guard
 ---
 
 # `ComponentRegistry`
@@ -129,7 +128,7 @@ The protocol:
 4. **Atomic swap** — the registry slot is updated. New lookups return the new instance.
 5. **Post-replace hook** — `post_replace` is called on the old instance (best-effort; errors are logged but do not roll back).
 
-Returns the old `Arc<dyn AnyComponent>`. Existing `Arc` clones held by other tasks keep the old instance alive until dropped (natural drain via reference counting). For explicit drain tracking, wrap the result in a [`DrainGuard`](drain-guard.md).
+Returns the old `Arc<dyn AnyComponent>`. Existing `Arc` clones held by other tasks keep the old instance alive until dropped (natural drain via reference counting).
 
 ### Errors
 
@@ -196,4 +195,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 - **[Component](component-trait.md)** — the lifecycle contract.
 - **[FactoryRegistry](factory-registry.md)** — populating the registry.
 - **[Extensions](extensions-facade.md)** — the runtime-facing view.
-- **[DrainGuard](drain-guard.md)** — explicit drain tracking after replace.

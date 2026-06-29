@@ -27,7 +27,7 @@ related:
 
 - **单一事实源** —— 每个协作者都藏在 `ExtensionPoint<T>` 后面。Runtime 从 facade 读。
 - **可热插拔** —— 任意协作者都可在运行时通过 `ExtensionPoint::replace` 或 drain-aware 协议替换。Runtime 不需要重建。
-- **廉价克隆** —— 克隆 `Arc<Extensions>` 廉价，所以 runtime 可以自由分发内部引用（例如给 `BackgroundJobPool` 和 `SnapshotStore`），不复制。
+- **廉价克隆** —— 克隆 `Arc<Extensions>` 廉价，所以 runtime 可以自由分发内部引用（例如给 `tokio::spawn` 和 `SnapshotStore`），不复制。
 - **测试隔离** —— 只关心单个维度的测试只需注册一个字段，其余留空。无需在测试中构造完整 provider 栈。
 
 ## 构造
@@ -237,7 +237,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 - **[SessionGate](session-gate.md)** —— per-session 串行化。
 - **[SnapshotStore](snapshot-store.md)** —— 崩溃恢复。
 - **[DoomLoopDetector](doom-loop-detector.md)** —— 重复 / 循环检测。
-- **[BackgroundJobPool](background-job-pool.md)** —— 异步事件持久化。
 - **[RuntimePolicy](runtime-policy.md)** —— 运维限制。
 - **[StreamAccumulator](stream-accumulator.md)** —— 增量流拼接。
 - **[RunState](run-state.md)** —— 事件溯源状态投影。

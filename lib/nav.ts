@@ -69,13 +69,12 @@ export const nav: NavGroup[] = [
     items: [
       { slug: 'core/extension-point', titleKey: 'nav.pages.core-extension-point', order: 1, summary: 'Typed, name-indexed, hot-swappable collection with live-reference detection.' },
       { slug: 'core/extensions-facade', titleKey: 'nav.pages.core-extensions-facade', order: 2, summary: 'The 13-field facade: the single source of truth for plug-ins.' },
-      { slug: 'core/drain-aware-replace', titleKey: 'nav.pages.core-drain-aware-replace', order: 3, summary: 'Two-phase drain protocol for atomic, in-flight-safe hot swap.' },
+      { slug: 'core/drain-aware-replace', titleKey: 'nav.pages.core-drain-aware-replace', order: 3, summary: 'Atomic replace with natural Arc drain for in-flight-safe hot swap.' },
       { slug: 'core/component-trait', titleKey: 'nav.pages.core-component-trait', order: 4, summary: 'The lifecycle contract: init → start → serve → stop → health.' },
       { slug: 'core/component-registry', titleKey: 'nav.pages.core-component-registry', order: 5, summary: 'Dependency-aware orchestration with typed downcasting.' },
       { slug: 'core/factory-registry', titleKey: 'nav.pages.core-factory-registry', order: 6, summary: '`kind` string → JSON config → `Box<dyn AnyComponent>`.' },
       { slug: 'core/default-factory-registry', titleKey: 'nav.pages.core-default-factory-registry', order: 7, summary: 'The built-in factory invoker set: OpenAI, Anthropic, memory stores, context.' },
       { slug: 'core/component-wrappers', titleKey: 'nav.pages.core-component-wrappers', order: 8, summary: 'Component-shaped wrappers for each provider and store.' },
-      { slug: 'core/drain-guard', titleKey: 'nav.pages.core-drain-guard', order: 9, summary: 'Explicit drain tracking after hot-swap via Arc reference counting.' },
     ],
   },
   {
@@ -95,10 +94,9 @@ export const nav: NavGroup[] = [
       { slug: 'runtime/session-gate', titleKey: 'nav.pages.runtime-session-gate', order: 7, summary: 'Per-session lock preventing concurrent run interleaving.' },
       { slug: 'runtime/snapshot-store', titleKey: 'nav.pages.runtime-snapshot-store', order: 8, summary: 'FSM-level crash recovery; resume from any state transition.' },
       { slug: 'runtime/doom-loop-detector', titleKey: 'nav.pages.runtime-doom-loop-detector', order: 9, summary: 'Duplicate and cycle detection for tool calls.' },
-      { slug: 'runtime/background-job-pool', titleKey: 'nav.pages.runtime-background-job-pool', order: 10, summary: 'Priority-aware async job pool with graceful shutdown.' },
-      { slug: 'runtime/runtime-policy', titleKey: 'nav.pages.runtime-runtime-policy', order: 11, summary: 'Limits, budgets, timeouts, and admission control.' },
-      { slug: 'runtime/stream-accumulator', titleKey: 'nav.pages.runtime-stream-accumulator', order: 12, summary: 'Incrementally assemble streamed text and tool calls.' },
-      { slug: 'runtime/run-state', titleKey: 'nav.pages.runtime-run-state', order: 13, summary: 'Event-sourced state projection: status, usage, finish.' },
+      { slug: 'runtime/runtime-policy', titleKey: 'nav.pages.runtime-runtime-policy', order: 10, summary: 'Limits, budgets, timeouts, and admission control.' },
+      { slug: 'runtime/stream-accumulator', titleKey: 'nav.pages.runtime-stream-accumulator', order: 11, summary: 'Incrementally assemble streamed text and tool calls.' },
+      { slug: 'runtime/run-state', titleKey: 'nav.pages.runtime-run-state', order: 12, summary: 'Event-sourced state projection: status, usage, finish.' },
     ],
   },
   {
@@ -185,7 +183,7 @@ export const nav: NavGroup[] = [
     titleKey: 'nav.groups.config',
     color: 'yellow',
     order: 8,
-    summary: 'Layered config, error model, observability, queues, gRPC transport.',
+    summary: 'Layered config, error model, observability, queues.',
     landing: 'config/agent-config',
     items: [
       { slug: 'config/agent-config', titleKey: 'nav.pages.config-agent-config', order: 1, summary: '`AgentConfig` + builder: the user-facing configuration surface.' },
@@ -193,7 +191,6 @@ export const nav: NavGroup[] = [
       { slug: 'config/error-handling', titleKey: 'nav.pages.config-error-handling', order: 3, summary: 'Typed error categories and retryable / context-overflow flags.' },
       { slug: 'config/observability', titleKey: 'nav.pages.config-observability', order: 4, summary: 'Tracing and OpenTelemetry integration.' },
       { slug: 'config/queue-publishers', titleKey: 'nav.pages.config-queue-publishers', order: 5, summary: 'External event publishing through NATS or Redis Streams.' },
-      { slug: 'config/grpc-transport', titleKey: 'nav.pages.config-grpc-transport', order: 6, summary: 'Optional gRPC server binary and protobuf service layer.' },
     ],
   },
   {
@@ -204,7 +201,7 @@ export const nav: NavGroup[] = [
     summary: 'ManagedRuntime, hot reload, health aggregation, deployment, performance.',
     landing: 'ops/managed-runtime',
     items: [
-      { slug: 'ops/managed-runtime', titleKey: 'nav.pages.ops-managed-runtime', order: 1, summary: 'Runtime + ComponentRegistry + TransportHub + ShutdownToken.' },
+      { slug: 'ops/managed-runtime', titleKey: 'nav.pages.ops-managed-runtime', order: 1, summary: 'Runtime + ComponentRegistry + ShutdownToken.' },
       { slug: 'ops/hot-reload', titleKey: 'nav.pages.ops-hot-reload', order: 2, summary: 'Drain-aware atomic replace: the hot-swap protocol.' },
       { slug: 'ops/health-aggregation', titleKey: 'nav.pages.ops-health-aggregation', order: 3, summary: 'Worst-case health aggregation across components and transports.' },
       { slug: 'ops/deployment', titleKey: 'nav.pages.ops-deployment', order: 4, summary: 'Deploying behest: container, VM, sidecar, library.' },

@@ -8,7 +8,6 @@ related:
   - ops/managed-runtime
   - ops/hot-reload
   - core/component-trait
-  - config/grpc-transport
 ---
 
 # 健康聚合
@@ -85,18 +84,6 @@ impl ManagedRuntime {
 
 顶层 `status` 是聚合结果。`components` 对象包含每个组件的详细信息。
 
-## Transport 健康
-
-`TransportHub::health()` 为每个已注册 transport 返回 `HashMap<String, HealthStatus>`。`ManagedRuntime::health()` 在聚合前合并组件和 transport 的健康映射：
-
-```rust
-let component_health = registry.health().await;
-let transport_health = hub.health().await;
-// 合并为一个 map，然后聚合
-```
-
-这意味着降级的 transport（例如无法绑定的 gRPC 服务器）会像降级组件一样影响整体状态。
-
 ## 使用示例
 
 ```rust
@@ -122,4 +109,3 @@ println!("{}", serde_json::to_string_pretty(&report)?);
 
 - **[ManagedRuntime](managed-runtime.md)** —— 驱动健康聚合的编排器。
 - **[Component Trait](../core/component-trait.md)** —— `health()` 探测合约。
-- **[gRPC Transport](../config/grpc-transport.md)** —— transport 健康探测。

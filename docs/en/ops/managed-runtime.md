@@ -1,6 +1,6 @@
 ---
 title: ManagedRuntime
-description: The top-level orchestrator — AgentRuntime + ComponentRegistry + TransportHub + ShutdownToken in a single handle.
+description: The top-level orchestrator — AgentRuntime + ComponentRegistry + ShutdownToken in a single handle.
 group: ops
 order: 1
 summary: Unified container with coordinated lifecycle, typed component access, aggregated health, and hot-reload.
@@ -10,14 +10,13 @@ related:
   - core/component-registry
   - core/extensions-facade
   - runtime/agent-runtime
-  - config/grpc-transport
 ---
 
 # `ManagedRuntime`
 
 > The top-level orchestrator.
 
-`ManagedRuntime` unifies `AgentRuntime`, `ComponentRegistry`, an optional `TransportHub`, and a root `ShutdownToken` into a single handle. It provides coordinated lifecycle (`init_all → start_all → serve → stop_all`), typed component access, aggregated health probes, and a drain-aware hot-reload entry point.
+`ManagedRuntime` unifies `AgentRuntime`, `ComponentRegistry`, and a root `ShutdownToken` into a single handle. It provides coordinated lifecycle (`init_all → start_all → serve → stop_all`), typed component access, aggregated health probes, and a drain-aware hot-reload entry point.
 
 The full file is `src/runtime/managed.rs`.
 
@@ -46,7 +45,6 @@ use behest::runtime::ManagedRuntime;
 let managed = ManagedRuntime::new(
     runtime,
     registry,
-    hub,        // TransportHub (server feature)
     shutdown,   // ShutdownToken
 );
 ```
@@ -58,7 +56,6 @@ impl ManagedRuntime {
     // Accessors
     pub fn runtime(&self) -> &AgentRuntime;
     pub fn registry(&self) -> &ComponentRegistry;
-    pub fn hub(&self) -> &TransportHub;          // server feature
     pub fn shutdown_token(&self) -> ShutdownToken;
     pub fn extensions(&self) -> Arc<Extensions>;
 
@@ -92,13 +89,11 @@ impl ManagedRuntime {
    build_managed  →  init_all  →  start_all  →  serve  →  signal_shutdown  →  stop_all
 ```
 
-`serve()` starts all registered transports (when the `server` feature is enabled), then waits for the root shutdown token to fire. On shutdown, transports stop via child tokens, and components stop in reverse dependency order.
-
-For a blocking alternative that waits for all transports to complete, use `TransportHub::serve_all`.
+`serve()` waits for the root shutdown token to fire. On shutdown, components stop in reverse dependency order.
 
 ## Health aggregation
 
-`health()` collects probes from every initialized component and (when the `server` feature is enabled) every registered transport:
+`health()` collects probes from every initialized component:
 
 ```rust
 let map = managed.health().await;
@@ -153,11 +148,9 @@ All errors are `ManagedError`:
 | `ComponentNotFound(name)` | Lookup or reload target not registered |
 | `Registry(RegistryError)` | Underlying registry failure |
 | `Reload { name, message }` | Hot-swap protocol failure |
-| `Transport(TransportError)` | Transport startup failure (server feature) |
 
 ## See also
 
 - **[Hot Reload](hot-reload.md)** — the drain-aware replace protocol.
 - **[Health Aggregation](health-aggregation.md)** — probes and readiness.
 - **[ComponentRegistry](../core/component-registry.md)** — the lifecycle orchestrator.
-- **[gRPC Transport](../config/grpc-transport.md)** — the transport layer.

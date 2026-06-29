@@ -15,7 +15,7 @@ related:
 > **behest** /bɪˈhest/ — *n.* a person's orders or command.
 > At the **behest** of the user, the agent acts.
 
-`behest` is a Rust-native agent runtime library. It provides provider-neutral contracts for chat, streaming, tool calling, embeddings, persistence, queues, RAG, observability, and an optional gRPC server — assembled from small, hot-pluggable components that you can compose, replace, and reload at runtime.
+`behest` is a Rust-native agent runtime library. It provides provider-neutral contracts for chat, streaming, tool calling, embeddings, persistence, queues, RAG, observability — assembled from small, hot-pluggable components that you can compose, replace, and reload at runtime.
 
 The crate is built for systems that need **explicit control** over model providers, tool execution, persistence, and operational boundaries — instead of opaque "agent framework" magic.
 
@@ -34,7 +34,7 @@ The name deliberately avoids inflated metaphors. It only states an engineering f
 - **Streaming-first runtime** — the agent loop is designed around streamed model events, with non-streaming fallback where appropriate.
 - **Typed tool boundary** — tools are described by JSON Schema and executed through explicit registries.
 - **Pluggable persistence** — memory by default, external stores behind feature flags.
-- **Operational surface** — event publishing, snapshots, session gates, compaction, retry policy, and an optional gRPC server.
+- **Operational surface** — event publishing, snapshots, session gates, compaction, retry policy.
 - **Small public API** — foundation primitives over framework sprawl.
 
 ## The component graph
@@ -105,7 +105,6 @@ Every box is a documented component page. Start anywhere; the **Related componen
 | Context and RAG | context adapters, static/function adapters, optional RAG adapter |
 | Queues | optional event publishing through NATS or Redis Streams |
 | Configuration | builder, file-based config, environment variable loading, secret indirection |
-| Server | optional gRPC server binary behind `server` feature |
 | Observability | tracing and optional OpenTelemetry integration |
 
 ## Where to go next
@@ -122,6 +121,6 @@ The documentation is grouped into 10 sections. Pick your entry point:
 - **[Context & Tools](../tools/tool-trait.md)** — the tool hierarchy, scopes, and the RAG adapter.
 - **[Providers](../providers/chat-provider.md)** — provider ports, message types, and concrete adapters.
 - **[Storage](../storage/storage-overview.md)** — store traits and feature-gated backends.
-- **[Config & Cross-cutting](../config/agent-config.md)** — config, errors, observability, queue, gRPC transport.
+- **[Config & Cross-cutting](../config/agent-config.md)** — config, errors, observability, queue.
 - **[Operations](../ops/managed-runtime.md)** — `ManagedRuntime` and the hot-reload protocol (planned).
 - **[Reference](../ref/api-reference.md)** — full API index, development guide, migration notes.

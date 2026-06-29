@@ -71,7 +71,7 @@ The FSM delegates to `ToolRuntime`, which validates arguments, applies the per-t
 
 ### `Persisting`
 
-The FSM writes the new messages to the `SessionStore`, appends a `RunEventRecord` to the `RunStore`, and enqueues an async event-persistence job to the `BackgroundJobPool`. If more turns are needed (and the policy allows), the loop returns to `CheckingPolicy`. Otherwise, the run terminates with `Completed` or `Failed`.
+The FSM writes the new messages to the `SessionStore`, appends a `RunEventRecord` to the `RunStore`, and spawns an async event-persistence task via `tokio::spawn`. If more turns are needed (and the policy allows), the loop returns to `CheckingPolicy`. Otherwise, the run terminates with `Completed` or `Failed`.
 
 ## The transition function
 

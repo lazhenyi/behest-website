@@ -124,7 +124,7 @@ for e in events {
 
 ## Where next
 
-- **[Feature Flags](feature-flags.md)** — turn on storage, queue, gRPC, RAG backends.
+- **[Feature Flags](feature-flags.md)** — turn on storage, queue, RAG backends.
 - **[Examples](examples.md)** — full runnable examples covering tools, RAG, sessions, and streaming.
 - **[Core Abstractions](../core/extension-point.md)** — once your first turn works, learn the composable substrate.
 - **[Agent Runtime](../runtime/agent-runtime.md)** — the streaming-first FSM that drives every turn.

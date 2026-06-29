@@ -1,6 +1,6 @@
 ---
 title: ManagedRuntime
-description: 顶层编排器 —— AgentRuntime + ComponentRegistry + TransportHub + ShutdownToken 统一句柄。
+description: 顶层编排器 —— AgentRuntime + ComponentRegistry + ShutdownToken 统一句柄。
 group: ops
 order: 1
 summary: 统一容器，协调生命周期、类型化组件访问、聚合健康检查和热替换。
@@ -10,14 +10,13 @@ related:
   - core/component-registry
   - core/extensions-facade
   - runtime/agent-runtime
-  - config/grpc-transport
 ---
 
 # `ManagedRuntime`
 
 > 顶层编排器。
 
-`ManagedRuntime` 将 `AgentRuntime`、`ComponentRegistry`、可选的 `TransportHub` 和根 `ShutdownToken` 统一为单个句柄。提供协调的生命周期（`init_all → start_all → serve → stop_all`）、类型化组件访问、聚合健康探测和 drain-aware 热替换入口。
+`ManagedRuntime` 将 `AgentRuntime`、`ComponentRegistry` 和根 `ShutdownToken` 统一为单个句柄。提供协调的生命周期（`init_all → start_all → serve → stop_all`）、类型化组件访问、聚合健康探测和 drain-aware 热替换入口。
 
 完整文件：`src/runtime/managed.rs`。
 
@@ -46,7 +45,6 @@ use behest::runtime::ManagedRuntime;
 let managed = ManagedRuntime::new(
     runtime,
     registry,
-    hub,        // TransportHub（server feature）
     shutdown,   // ShutdownToken
 );
 ```
@@ -58,7 +56,6 @@ impl ManagedRuntime {
     // 访问器
     pub fn runtime(&self) -> &AgentRuntime;
     pub fn registry(&self) -> &ComponentRegistry;
-    pub fn hub(&self) -> &TransportHub;          // server feature
     pub fn shutdown_token(&self) -> ShutdownToken;
     pub fn extensions(&self) -> Arc<Extensions>;
 
@@ -92,13 +89,11 @@ impl ManagedRuntime {
    build_managed  →  init_all  →  start_all  →  serve  →  signal_shutdown  →  stop_all
 ```
 
-`serve()` 启动所有已注册的 transport（`server` feature 启用时），然后等待根 shutdown token 触发。关闭时，transport 通过子 token 停止，组件按依赖逆序停止。
-
-阻塞替代方案：使用 `TransportHub::serve_all` 等待所有 transport 完成。
+`serve()` 等待根 shutdown token 触发。关闭时，组件通过子 token 按依赖逆序停止。
 
 ## 健康聚合
 
-`health()` 从每个已初始化组件和（`server` feature 启用时）每个已注册 transport 收集探测结果：
+`health()` 从每个已初始化组件收集探测结果：
 
 ```rust
 let map = managed.health().await;
@@ -153,11 +148,9 @@ let old = managed.reload::<MyComponent>("my_comp", new_instance).await?;
 | `ComponentNotFound(name)` | 查找或替换目标未注册 |
 | `Registry(RegistryError)` | 底层注册表故障 |
 | `Reload { name, message }` | 热替换协议故障 |
-| `Transport(TransportError)` | Transport 启动故障（server feature） |
 
 ## 另见
 
 - **[热替换](hot-reload.md)** —— drain-aware 替换协议。
 - **[健康聚合](health-aggregation.md)** —— 探测和就绪检查。
 - **[ComponentRegistry](../core/component-registry.md)** —— 生命周期编排器。
-- **[gRPC Transport](../config/grpc-transport.md)** —— 传输层。

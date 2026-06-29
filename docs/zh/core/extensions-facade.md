@@ -152,19 +152,17 @@ assert_eq!(exts.populated_categories(), 2);
 
 ## 通过 facade 进行热替换
 
-由于每个字段都是 `ExtensionPoint`，热替换的接口是统一的。具体的协议取决于替换什么 —— runtime 本身并不观察替换事件；底层的 `ExtensionPoint` 处理 live-reference 和 drain 逻辑。
+由于每个字段都是 `ExtensionPoint`，热替换的接口是统一的。runtime 本身并不观察替换事件；底层的 `ExtensionPoint` 处理 live-reference 和 drain 逻辑。
 
 ```rust
-// 普通替换：换掉，但旧实例要等最后一个持有者释放才被丢弃。
+// 原子替换：换掉存储的 Arc<T>，拿到旧的 Arc。
+// 新的 get() 调用返回新实例；持有旧 Arc<T> 的 in-flight 调用
+// 在 drop 之前继续使用旧实例。
 let old = exts.chat_providers.replace("openai", Arc::new(new_openai))?;
-
-// Drain-aware 替换：等待 `openai` 上的 in-flight 请求完成。
-let token = exts.chat_providers.begin_replace("openai", DEFAULT_DRAIN_TIMEOUT)?;
-let ep_arc = Arc::clone(&exts.chat_providers);  // complete_replace 需要 Arc<Self>
-ep_arc.complete_replace("openai", Arc::new(new_openai), token).await?;
+drop(old);  // 或持有并轮询 Arc::strong_count 等待 drain
 ```
 
-`ManagedRuntime::reload` 走后者。完整时序图与超时语义见 **[Drain-aware Replace](drain-aware-replace.md)**。
+`ManagedRuntime::reload` 的自然 drain 流程见 **[Drain-aware Replace](drain-aware-replace.md)**。
 
 ## 完整示例 —— 最小可组合 runtime
 
@@ -217,7 +215,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ## 另见
 
 - **[ExtensionPoint](extension-point.md)** —— 存储原语。
-- **[Drain-aware Replace](drain-aware-replace.md)** —— 两阶段替换协议。
+- **[Drain-aware Replace](drain-aware-replace.md)** —— 原子替换与自然 `Arc` drain。
 - **[AgentRuntime](../runtime/agent-runtime.md)** —— facade 的消费者。
 - **[FactoryRegistry](factory-registry.md)** —— 从配置填充 facade。
 - **[ManagedRuntime](../ops/managed-runtime.md)** —— 计划的顶层编排器。

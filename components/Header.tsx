@@ -24,9 +24,10 @@ export default function Header({ lang, dict }: HeaderProps) {
     <header
       className="sticky top-0 z-50"
       style={{
-        background: 'var(--surface)',
-        boxShadow: 'var(--clay-shadow-sm)',
-        borderRadius: '0 0 24px 24px',
+        background: 'rgba(250, 250, 250, 0.8)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid var(--border)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,18 +36,18 @@ export default function Header({ lang, dict }: HeaderProps) {
             <Link
               href={`/${lang}`}
               className="text-lg font-bold tracking-tight"
-              style={{ color: 'var(--accent)' }}
+              style={{ color: 'var(--fg)' }}
             >
               <span>behest</span>
               <span
                 className="ml-2 text-[10px] font-semibold px-2.5 py-0.5"
                 style={{
-                  color: 'var(--coral)',
-                  background: 'var(--coral-soft)',
-                  borderRadius: '50px',
+                  color: '#262626',
+                  background: '#63fe13',
+                  borderRadius: '3px',
                 }}
               >
-                v0.1
+                v0.4.1
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-2">
@@ -55,16 +56,14 @@ export default function Header({ lang, dict }: HeaderProps) {
                 className="px-4 py-2 text-sm font-medium tracking-wide"
                 style={{
                   color: 'var(--fg)',
-                  borderRadius: '50px',
-                  transition: 'all 0.2s ease',
+                  borderRadius: '5px',
+                  transition: 'background 0.15s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--surface-overlay)'
-                  e.currentTarget.style.boxShadow = 'var(--clay-shadow-sm)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.boxShadow = 'none'
                 }}
               >
                 {dict.nav.docs}
@@ -76,16 +75,14 @@ export default function Header({ lang, dict }: HeaderProps) {
                 className="px-4 py-2 text-sm font-medium tracking-wide flex items-center gap-1.5"
                 style={{
                   color: 'var(--fg)',
-                  borderRadius: '50px',
-                  transition: 'all 0.2s ease',
+                  borderRadius: '5px',
+                  transition: 'background 0.15s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--surface-overlay)'
-                  e.currentTarget.style.boxShadow = 'var(--clay-shadow-sm)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.boxShadow = 'none'
                 }}
               >
                 GitHub
@@ -107,24 +104,24 @@ export default function Header({ lang, dict }: HeaderProps) {
             </nav>
           </div>
           <div className="flex items-center gap-2">
-            {/* Language toggle — clay pill style */}
+            {/* Language toggle */}
             <div
-              className="flex items-center text-xs font-semibold overflow-hidden"
+              className="flex items-center text-xs font-medium overflow-hidden"
               style={{
-                background: 'var(--bg)',
-                borderRadius: '50px',
-                boxShadow: 'var(--clay-shadow-pressed)',
+                background: 'var(--surface-overlay)',
+                borderRadius: '5px',
+                border: '1px solid var(--border)',
               }}
             >
               {i18n.locales.map((locale) => (
                 <button
                   key={locale}
                   onClick={() => router.push(redirectedPathname(locale))}
-                  className="px-3.5 py-1.5 transition-all duration-200 cursor-pointer"
+                  className="px-3.5 py-1.5 transition-all duration-100 cursor-pointer"
                   style={{
                     background: locale === lang ? 'var(--accent)' : 'transparent',
                     color: locale === lang ? '#fff' : 'var(--muted)',
-                    borderRadius: '50px',
+                    borderRadius: '4px',
                     border: 'none',
                   }}
                 >

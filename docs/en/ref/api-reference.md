@@ -50,7 +50,6 @@ This page is a quick-reference index. Each entry links to its full documentation
 | `InputAdmission` | [InputAdmission](../runtime/input-admission.md) |
 | `SessionGate` | [SessionGate](../runtime/session-gate.md) |
 | `DoomLoopDetector` | [DoomLoopDetector](../runtime/doom-loop-detector.md) |
-| `BackgroundJobPool` | [BackgroundJobPool](../runtime/background-job-pool.md) |
 | `RuntimeInvocation` | [RuntimeInvocation](../events/runtime-invocation.md) |
 | `RuntimeSubscriptionHub` | [RuntimeSubscriptionHub](../events/runtime-subscription-hub.md) |
 | `RuntimeEventBridge` | [RuntimeEventBridge](../events/runtime-event-bridge.md) |
@@ -63,7 +62,6 @@ This page is a quick-reference index. Each entry links to its full documentation
 | `ToolRuntime` | [ToolRuntime](../tools/tool-runtime.md) |
 | `ScopedToolRegistry` | [ScopedToolRegistry](../tools/scoped-tool-registry.md) |
 | `AgentConfig` | [AgentConfig](../config/agent-config.md) |
-| `ReplaceToken` | [Drain-aware Replace](../core/drain-aware-replace.md) |
 
 ## Data types
 

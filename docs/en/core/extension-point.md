@@ -3,7 +3,7 @@ title: ExtensionPoint<T>
 description: Typed, name-indexed, hot-swappable collection with drain-aware replace.
 group: core
 order: 1
-summary: A lock-free, clone-cheap registry of `Arc<T>` keyed by string, with live-reference detection and a two-phase drain protocol.
+summary: A lock-free, clone-cheap registry of `Arc<T>` keyed by string, with live-reference detection and atomic hot-swap.
 related:
   - core/extensions-facade
   - core/drain-aware-replace
@@ -32,7 +32,7 @@ Before `ExtensionPoint<T>`, every "registry" in the runtime was its own bespoke 
 1. **Register** by name with conflict detection.
 2. **Replace** atomically, returning the previous `Arc<T>`.
 3. **Detect live references** so that callers don't accidentally drop something still in use.
-4. **Drain-aware replace** for runtime hot-swap that waits for in-flight requests to finish.
+4. **Natural drain** — callers holding the old `Arc<T>` keep it alive until they drop it; new `get` calls return the new instance.
 
 The result is a single primitive that any component — `ProviderRegistry`, `RuntimeStore`, `ContextPipeline`, `ComponentRegistry`, `FactoryRegistry` — can use as its internal store, gaining all four behaviours for free.
 
@@ -42,7 +42,7 @@ The result is a single primitive that any component — `ProviderRegistry`, `Run
 - **Clonable** — the inner state is wrapped in an `Arc`, so cloning an `ExtensionPoint` is cheap. A clone observes every registration performed on the original.
 - **Hot-swappable** — `replace` atomically swaps the stored `Arc<T>` and returns the previous one. Callers holding the old `Arc` continue to use it; new `get` calls return the new instance.
 - **In-use detection** — `unregister` refuses to drop an entry whose strong count is above the registry's reference (one reference for the storage slot). This catches the common bug of removing a provider that is still serving a run.
-- **Drain-aware** — `begin_replace` + `complete_replace` form a two-phase protocol that allows the new instance to start serving requests before the old one is dropped, with a configurable drain timeout.
+- **Natural drain** — `replace` returns the old `Arc<T>` so the caller can observe when in-flight work is done (via `Arc::strong_count` or by awaiting known work) before recycling the old instance.
 
 ## API surface
 
@@ -64,13 +64,6 @@ impl<T: ?Sized> ExtensionPoint<T> {
     pub fn len(&self) -> usize;
     pub fn unregister(&self, name: &str) -> Result<Option<Arc<T>>, ExtensionError>;
     pub fn replace(&self, name: &str, new: Arc<T>) -> Result<Arc<T>, ExtensionError>;
-    pub fn begin_replace(&self, name: &str, drain_timeout: Duration) -> Result<ReplaceToken, ExtensionError>;
-    pub async fn complete_replace(
-        self: Arc<Self>,
-        name: &str,
-        new: Arc<T>,
-        token: ReplaceToken,
-    ) -> Result<(), ExtensionError>;
 }
 
 impl<T: ?Sized> Default for ExtensionPoint<T> { ... }
@@ -85,7 +78,6 @@ pub enum ExtensionError {
     NotFound { name: String },
     InUse { name: String, strong_count: usize },
     LockPoisoned,
-    Replace(ReplaceError),
 }
 ```
 
@@ -126,22 +118,7 @@ assert_eq!(*old.unwrap(), "old");
 assert_eq!(*ep.get("k").unwrap(), "new");
 ```
 
-`replace` is **synchronous and atomic** at the level of the storage map. The old `Arc` is handed back so the caller can pass it to the drain protocol if it wants graceful shutdown. `replace` does **not** check whether the old `Arc` is still in use — that's the caller's responsibility. For a protocol that does, see below.
-
-### Drain-aware hot-swap
-
-The two-phase `begin_replace` / `complete_replace` is the hot-swap path used by `ManagedRuntime::reload`. See **[Drain-aware Replace](drain-aware-replace.md)** for the full protocol, including the timing diagram and the timeout semantics.
-
-```rust
-use std::time::Duration;
-use behest::runtime::replace::DEFAULT_DRAIN_TIMEOUT;
-
-let token = ep.begin_replace("k", DEFAULT_DRAIN_TIMEOUT)?;  // 30s
-// ... new instance is constructed and started in parallel ...
-ep_clone.complete_replace("k", new_instance, token).await?;
-```
-
-The whole flow is designed to never drop a value while a caller might still be using it. If the drain timeout elapses with in-flight references, the swap still proceeds — but the old instance is now leaking for as long as the longest-held reference.
+`replace` is **synchronous and atomic** at the level of the storage map. The old `Arc` is handed back so the caller can observe when in-flight work is done before recycling the old instance. `replace` does **not** check whether the old `Arc` is still in use — that's the caller's responsibility. For the full drain story, see **[Drain-aware Replace](drain-aware-replace.md)**.
 
 ## Worked example
 
@@ -149,18 +126,17 @@ The whole flow is designed to never drop a value while a caller might still be u
 use std::sync::Arc;
 use std::time::Duration;
 use behest::runtime::extension::ExtensionPoint;
-use behest::runtime::replace::DEFAULT_DRAIN_TIMEOUT;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Typed extension point for an opaque "metrics sink" trait object.
     let ep: ExtensionPoint<dyn Send + Sync> = ExtensionPoint::new();
 
-    // Phase 1: bring up v1.
+    // Bring up v1.
     let v1: Arc<dyn Send + Sync> = Arc::new("v1-metrics");
     ep.register("primary", v1.clone())?;
 
-    // Phase 2: a long-running task holds a reference to v1.
+    // A long-running task holds a reference to v1.
     let inflight = ep.get("primary").unwrap();
     let task = tokio::spawn(async move {
         tokio::time::sleep(Duration::from_millis(100)).await;
@@ -168,14 +144,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         drop(inflight);
     });
 
-    // Phase 3: hot-swap. The drain protocol waits for the inflight task
-    // to finish before letting the storage slot be overwritten.
-    let ep_arc = Arc::new(ep);
+    // Hot-swap. `replace` returns the old Arc<T>; new `get` calls return v2.
+    // The old instance stays alive until `old` (and the task's clone) are dropped.
     let v2: Arc<dyn Send + Sync> = Arc::new("v2-metrics");
-    let token = ep_arc.begin_replace("primary", DEFAULT_DRAIN_TIMEOUT)?;
-    ep_arc.complete_replace("primary", v2, token).await?;
+    let old = ep.replace("primary", v2)?;
 
-    task.await?;
+    task.await?;      // task drops its clone of v1
+    drop(old);        // we drop our reference; v1 is now reclaimed
     println!("swap complete");
     Ok(())
 }
@@ -184,8 +159,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ## Edge cases & error semantics
 
 - **Register race** — two threads calling `register("k", …)` concurrently: exactly one succeeds; the other gets `AlreadyRegistered`. There is no deadlock.
-- **Replace missing** — `replace` on a name that was never registered returns `NotFound`. So does `complete_replace` if the name was unregistered between `begin_replace` and `complete_replace`.
-- **Token reuse** — `complete_replace` rejects a `ReplaceToken` that has already been committed (the second call gets `ReplaceError::AlreadyCommitted`). The token is intentionally `Clone` so it can be passed to a deadline task.
+- **Replace missing** — `replace` on a name that was never registered returns `NotFound`. If `unregister("k")` runs between your `get("k")` and your `replace("k", …)`, the `replace` also returns `NotFound`.
 - **Lock poisoning** — if a panic occurs while holding the inner `RwLock`, subsequent calls return `LockPoisoned`. This is rare in practice because the inner lock is only held for hash-map operations, but callers should still surface the error.
 - **Dropping the last `Arc<T>`** — happens automatically when both the storage slot and the last external `Arc` are dropped. There is no `Drop` impl for `ExtensionPoint<T>`; the inner `Arc<ExtensionInner<T>>` keeps the map alive as long as any clone exists.
 - **Trait objects** — the `T: ?Sized` bound allows `ExtensionPoint<dyn ChatProvider>`. For sized types, the common case is also supported. The `Default` impl produces an empty point.
@@ -202,7 +176,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ## See also
 
 - **[Extensions Facade](extensions-facade.md)** — the 13-field struct of `ExtensionPoint`s.
-- **[Drain-aware Replace](drain-aware-replace.md)** — the two-phase swap protocol.
+- **[Drain-aware Replace](drain-aware-replace.md)** — atomic replace with natural `Arc` drain.
 - **[Component Trait](component-trait.md)** — the lifecycle contract for plug-ins.
 - **[ComponentRegistry](component-registry.md)** — the orchestrator.
 - **[FactoryRegistry](factory-registry.md)** — `kind` → factory mapping.

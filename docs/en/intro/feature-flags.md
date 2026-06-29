@@ -18,7 +18,7 @@ related:
 
 - **Library features** are named after the underlying dependency: `redis`, `nats`, `qdrant`, `mongodb`, `surrealdb`, `openai`, `anthropic`.
 - **TLS stacks** are mutually exclusive: `tls-rustls` (default) or `tls-native`. Switching requires an explicit opt-out of the default.
-- **Aggregator features** turn on a coherent bundle: `full`, `storage-all`, `rag-all`, `queue-all`, `server`.
+- **Aggregator features** turn on a coherent bundle: `full`, `storage-all`, `rag-all`, `queue-all`.
 
 ## Default
 
@@ -64,18 +64,17 @@ related:
 | `nats` | NATS JetStream publisher. |
 | `queue-all` | Enables `queue` + `nats` + `redis`. |
 
-## Server and observability
+## Observability
 
 | Feature | Description |
 |---|---|
-| `server` | The `agent-server` binary and the gRPC transport. |
 | `otel` | OpenTelemetry tracing integration. |
 
 ## Aggregator
 
 | Feature | Description |
 |---|---|
-| `full` | An opinionated full profile: `openai` + `anthropic` + `redis` + `redis-cluster` + `nats` + `sqlx-postgres` + `mongodb` + `surrealdb` + `otel` + `rag-all` + `queue-all` + `object_store`. Intentionally does not enable `server`, `sqlx-mysql`, or `sqlx-sqlite`. |
+| `full` | An opinionated full profile: `openai` + `anthropic` + `redis` + `redis-cluster` + `nats` + `sqlx-postgres` + `mongodb` + `surrealdb` + `otel` + `rag-all` + `queue-all` + `object_store`. Intentionally does not enable `sqlx-mysql` or `sqlx-sqlite`. |
 
 ## Selection guide
 

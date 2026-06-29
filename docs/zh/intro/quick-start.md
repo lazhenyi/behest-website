@@ -124,7 +124,7 @@ for e in events {
 
 ## 下一步
 
-- **[特性开关](feature-flags.md)** — 打开存储、队列、gRPC、RAG backend。
+- **[特性开关](feature-flags.md)** — 打开存储、队列、RAG backend。
 - **[示例](examples.md)** — 涵盖工具、RAG、session 与流式的完整可运行示例。
 - **[核心抽象](../core/extension-point.md)** — 第一个 turn 跑通后，学习可组合的基底。
 - **[Agent 运行时](../runtime/agent-runtime.md)** — 驱动每个 turn 的流式优先 FSM。

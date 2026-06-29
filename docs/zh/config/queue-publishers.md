@@ -29,5 +29,4 @@ pub trait EventPublisher: Send + Sync {
 ## 另见
 
 - **[AgentEvent](../events/agent-event.md)** —— 事件类型。
-- **[BackgroundJobPool](../runtime/background-job-pool.md)** —— 派发器。
 

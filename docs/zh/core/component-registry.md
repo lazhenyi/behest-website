@@ -9,7 +9,6 @@ related:
   - core/extension-point
   - core/factory-registry
   - core/extensions-facade
-  - core/drain-guard
 ---
 
 # `ComponentRegistry`
@@ -129,7 +128,7 @@ let old = registry.replace_instance("db", new_instance).await?;
 4. **原子交换** —— 更新 registry 槽位。新的查找返回新实例。
 5. **Post-replace hook** —— 对旧实例调用 `post_replace`（尽力而为；错误会被记录但不会回滚）。
 
-返回旧的 `Arc<dyn AnyComponent>`。其他任务持有的现有 `Arc` 克隆保持旧实例存活直到被 drop（通过引用计数自然 drain）。对于显式 drain 跟踪，将结果包装在 [`DrainGuard`](drain-guard.md) 中。
+返回旧的 `Arc<dyn AnyComponent>`。其他任务持有的现有 `Arc` 克隆保持旧实例存活直到被 drop（通过引用计数自然 drain）。
 
 ### 错误
 
@@ -196,4 +195,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 - **[Component](component-trait.md)** —— 生命周期合约。
 - **[FactoryRegistry](factory-registry.md)** —— 填充 registry。
 - **[Extensions](extensions-facade.md)** —— 运行时视图。
-- **[DrainGuard](drain-guard.md)** —— 替换后的显式 drain 跟踪。

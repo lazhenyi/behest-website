@@ -27,7 +27,7 @@ Before the composable runtime refactor, the equivalent of `AgentRuntime` was a w
 
 - **Single source of truth.** Every collaborator lives behind an `ExtensionPoint<T>`. The runtime reads from the facade.
 - **Hot-pluggable.** Any collaborator can be replaced at runtime via `ExtensionPoint::replace` or the drain-aware protocol. The runtime does not need to be rebuilt.
-- **Cheap cloning.** Cloning `Arc<Extensions>` is cheap, so the runtime can hand out interior references freely (e.g. to the `BackgroundJobPool` and the `SnapshotStore`) without copying.
+- **Cheap cloning.** Cloning `Arc<Extensions>` is cheap, so the runtime can hand out interior references freely (e.g. to `tokio::spawn` tasks and the `SnapshotStore`) without copying.
 - **Test isolation.** Tests that care about a single dimension register a single field and pass the rest empty. No need to construct the full provider-stack in a test.
 
 ## Construction
@@ -237,7 +237,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 - **[SessionGate](session-gate.md)** — per-session serialisation.
 - **[SnapshotStore](snapshot-store.md)** — crash recovery.
 - **[DoomLoopDetector](doom-loop-detector.md)** — duplicate / cycle detection.
-- **[BackgroundJobPool](background-job-pool.md)** — async event persistence.
 - **[RuntimePolicy](runtime-policy.md)** — operational limits.
 - **[StreamAccumulator](stream-accumulator.md)** — incremental stream assembly.
 - **[RunState](run-state.md)** — event-sourced state projection.

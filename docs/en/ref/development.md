@@ -17,7 +17,7 @@ related:
 
 - Rust 1.85+ (MSRV)
 - `cargo` and `rustfmt`
-- Optional: `protoc` (for gRPC codegen), Docker (for integration tests)
+- Optional: Docker (for integration tests)
 
 ## Build
 

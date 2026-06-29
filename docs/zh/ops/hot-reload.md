@@ -10,7 +10,6 @@ related:
   - core/drain-aware-replace
   - core/component-trait
   - core/component-registry
-  - core/drain-guard
 ---
 
 # 热替换
@@ -79,8 +78,6 @@ pub trait Component: Send + Sync + 'static {
 
 与 `ExtensionPoint` drain 协议（循环轮询 `Arc::strong_count`）不同，`ManagedRuntime::reload` 使用**自然 drain**：旧 `Arc<T>` 返回给调用者，其他任务持有的任何现有 `Arc<T>` 克隆保持旧实例存活直到被 drop。没有 drain 超时 —— 旧实例存活到最后一个引用被释放。
 
-对于显式 drain 跟踪，使用 `DrainGuard`（见 **[Drain Guard](../core/drain-guard.md)**）。
-
 ## 使用示例
 
 ```rust
@@ -129,4 +126,3 @@ let old = managed.reload_raw("my_comp", new_instance).await?;
 - **[ManagedRuntime](managed-runtime.md)** —— 消费者。
 - **[Drain-aware Replace](../core/drain-aware-replace.md)** —— ExtensionPoint 层面的协议。
 - **[Component Trait](../core/component-trait.md)** —— 生命周期钩子。
-- **[Drain Guard](../core/drain-guard.md)** —— 显式 drain 跟踪。

@@ -1,21 +1,20 @@
 ---
 title: Health Aggregation
-description: Worst-case health aggregation across components and transports.
+description: Worst-case health aggregation across components.
 group: ops
 order: 3
-summary: Worst-case semantics for component and transport health probes.
+summary: Worst-case semantics for component health probes.
 related:
   - ops/managed-runtime
   - ops/hot-reload
   - core/component-trait
-  - config/grpc-transport
 ---
 
 # Health Aggregation
 
 > A single health signal from many independent probes.
 
-`ManagedRuntime` aggregates the health of every registered component and transport into a single `HealthStatus`. The aggregation uses **worst-case semantics**: the least healthy component determines the overall status.
+`ManagedRuntime` aggregates the health of every registered component into a single `HealthStatus`. The aggregation uses **worst-case semantics**: the least healthy component determines the overall status.
 
 ## Semantics
 
@@ -39,7 +38,7 @@ unhealthy components: store.session.redis, provider.openai.chat
 
 ```rust
 impl ManagedRuntime {
-    /// Aggregate all component and transport health into a single
+    /// Aggregate all component health into a single
     /// HealthStatus using worst-case semantics.
     pub async fn overall_health(&self) -> HealthStatus;
 
@@ -86,18 +85,6 @@ impl ManagedRuntime {
 
 The top-level `status` is the aggregated result. The `components` object contains per-component detail.
 
-## Transport health
-
-`TransportHub::health()` returns a `HashMap<String, HealthStatus>` for every registered transport. `ManagedRuntime::health()` merges both component and transport health maps before aggregation:
-
-```rust
-let component_health = registry.health().await;
-let transport_health = hub.health().await;
-// merged into a single map, then aggregated
-```
-
-This means a degraded transport (e.g. gRPC server that cannot bind) will affect the overall status exactly like a degraded component.
-
 ## Worked example
 
 ```rust
@@ -123,4 +110,3 @@ println!("{}", serde_json::to_string_pretty(&report)?);
 
 - **[ManagedRuntime](managed-runtime.md)** — the orchestrator that drives health aggregation.
 - **[Component Trait](../core/component-trait.md)** — the `health()` probe contract.
-- **[gRPC Transport](../config/grpc-transport.md)** — transport health probes.

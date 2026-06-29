@@ -8,7 +8,6 @@ related:
   - events/runtime-invocation
   - events/agent-event
   - events/runtime-subscription-hub
-  - runtime/background-job-pool
 ---
 
 # `RuntimeEventStore`
@@ -45,4 +44,3 @@ pub trait RuntimeEventStore: Send + Sync {
 
 - **[RuntimeSubscriptionHub](runtime-subscription-hub.md)** —— 消费者。
 - **[AgentEvent](agent-event.md)** —— 事件 payload。
-- **[BackgroundJobPool](../runtime/background-job-pool.md)** —— 异步写入。

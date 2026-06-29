@@ -10,7 +10,6 @@ related:
   - core/drain-aware-replace
   - core/component-trait
   - core/component-registry
-  - core/drain-guard
 ---
 
 # Hot Reload
@@ -81,8 +80,6 @@ pub trait Component: Send + Sync + 'static {
 
 Unlike the `ExtensionPoint` drain protocol (which polls `Arc::strong_count` in a loop), `ManagedRuntime::reload` uses **natural drain**: the old `Arc<T>` is returned to the caller, and any existing `Arc<T>` clones held by other tasks keep the old instance alive until they are dropped. There is no drain timeout — the old instance lives as long as its last reference.
 
-For explicit drain tracking, use `DrainGuard` (see **[Drain Guard](../core/drain-guard.md)**).
-
 ## Worked example
 
 ```rust
@@ -131,4 +128,3 @@ let old = managed.reload_raw("my_comp", new_instance).await?;
 - **[ManagedRuntime](managed-runtime.md)** — the consumer.
 - **[Drain-aware Replace](../core/drain-aware-replace.md)** — the ExtensionPoint-level protocol.
 - **[Component Trait](../core/component-trait.md)** — the lifecycle hooks.
-- **[Drain Guard](../core/drain-guard.md)** — explicit drain tracking.

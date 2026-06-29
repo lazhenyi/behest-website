@@ -18,7 +18,7 @@ related:
 
 - **库 feature** 以来源依赖命名：`redis`、`nats`、`qdrant`、`mongodb`、`surrealdb`、`openai`、`anthropic`。
 - **TLS 栈** 互斥：`tls-rustls`（默认）或 `tls-native`。切换时需显式禁用默认。
-- **聚合 feature** 打开一组连贯的包：`full`、`storage-all`、`rag-all`、`queue-all`、`server`。
+- **聚合 feature** 打开一组连贯的包：`full`、`storage-all`、`rag-all`、`queue-all`。
 
 ## 默认
 
@@ -64,18 +64,17 @@ related:
 | `nats` | NATS JetStream 发布器。 |
 | `queue-all` | 启用 `queue` + `nats` + `redis`。 |
 
-## Server 与可观测性
+## 可观测性
 
 | Feature | 描述 |
 |---|---|
-| `server` | `agent-server` 二进制与 gRPC 传输。 |
 | `otel` | OpenTelemetry tracing 集成。 |
 
 ## 聚合
 
 | Feature | 描述 |
 |---|---|
-| `full` | 推荐的全量 profile：`openai` + `anthropic` + `redis` + `redis-cluster` + `nats` + `sqlx-postgres` + `mongodb` + `surrealdb` + `otel` + `rag-all` + `queue-all` + `object_store`。**不**启用 `server`、`sqlx-mysql`、`sqlx-sqlite`。 |
+| `full` | 推荐的全量 profile：`openai` + `anthropic` + `redis` + `redis-cluster` + `nats` + `sqlx-postgres` + `mongodb` + `surrealdb` + `otel` + `rag-all` + `queue-all` + `object_store`。**不**启用 `sqlx-mysql`、`sqlx-sqlite`。 |
 
 ## 选型指南
 

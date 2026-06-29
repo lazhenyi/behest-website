@@ -17,12 +17,6 @@ related: []
 let runtime = AgentConfig::builder().with_file("behest.toml")?.build_runtime().await?;
 ```
 
-## gRPC server
-
-```bash
-cargo run --bin agent-server --features server -- --config behest.toml
-```
-
 ## 资源需求
 
 内存 ~20 MB baseline。模型调用 I/O-bound。Tool 执行 CPU-bound 但通常短暂。
